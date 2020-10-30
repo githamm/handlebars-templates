@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CU Regent Handlebars Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.</strong>
+            {{this.[The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.]}}
+            &nbsp;
+            <strong>Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?</strong>
+            {{this.[Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?]}}
+            &nbsp;
+            <strong>The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?</strong>
+            {{this.[The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?]}}
+            <strong>The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?</strong>
+            {{this.[The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 2,
+    "Party": "Democratic Party",
+    "Name": "Callie Rennison",
+    "Age": 55,
+    "Place of residence": "Superior, CO",
+    "Profession": "Professor in the School of Public Affairs at UCD",
+    "Education": "PhD",
+    "Family": "Husband Dave Vaughan, cat Pente, and four parrots",
+    "Experience": "First generation college student, and community college graduate. Have served on the non-tenure track role, and am now a tenured full professor. Have held multiple leadership roles as well.",
+    "Campaign website": "https://callie4cu.com/",
+    "Facebook": "https://www.facebook.com/Callie4CU",
+    "Twitter": "",
+    "Why are you seeking public office?": "I have personal and professional skills and experience that will serve me well as a Regent. I am proud that I’ve come from very modest means as a first gen student, that I have served in non-tenure track roles, and am now a tenured professor at the University of Colorado Denver. I am proud that my research as a criminologist has helped to minimize violence against college students, and others. \n\nIn all the roles that I’ve served in, I’ve seen that CU has much to be proud of. But I’ve also seen that CU is not working for everyone. We can and must do better. \n\nAs Regent, I want to be a part of the team that makes CU work for everyone!",
+    "What will your top three priorities be if elected?": "Affordability and accessibility; diversity and inclusion; transparency and making decisions that prioritize students, staff and faculty as well as academics.",
+    "The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.": "Yes - because affordability and accessibility is a key reason I am running, I want to ensure the system focuses on the people in the system, as well as academics. I want to ensure the burden of costs are not shouldered by students, staff and faculty, but rather higher admin. Every Regent decision should be made with an eye of 'people first' and protecting our most vulnerable - including those who have been priced out from attending CU. We must do better.",
+    "Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?": "The degree of in-person differs greatly campus to campus. As a professor I am thankful to be teaching online only because I believe that is the safest course of action. I feel that the degree to which the Boulder campus went in-person was too great, and we are seeing that play out now with rising cases. I understand that finances are a challenge, but we have to make sure the people of CU, and those in the community are safe.",
+    "The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?": "If elected Regent, I would represent the people of the CU community and the larger community at large - regardless of anyone's partisan position. Decisions I would make would serve those in CU (students, staff and faculty) as well as all people in the broader community, and not just those who supported me during the campaign.",
+    "The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?": "Yes. We have had a focus on diversity and inclusion in our mission statement/ guiding principles for some time. What we have lacked is real action to make real change. The time for talk is over, and the time for action and accountability is here. This is a goal of these active groups whom I support. CU can do better and must do better, and it begins with priority of increasing diversity and inclusion being made clear from the very top leadership of CU. As a Regent, I will focus on exactly that."
+  },
+  {
+    "District": 6,
+    "Party": "Republican Party",
+    "Name": "Richard Murray",
+    "Age": 38,
+    "Place of residence": "Highlands Ranch",
+    "Profession": "Attorney",
+    "Education": "University of Colorado Boulder, B.A. Political Science & Philosophy, Business Minor; Univ. of Colorado Law School, J.D.",
+    "Family": "Married to Elizabeth Murray (CU class '07); two children, Cayden (age 7), Olivia (age 5)",
+    "Experience": "Richard is a two-time CU alum, an accomplished attorney, a former CU Student Body President, and former Chair of the CU Law Alumni Board, who has in-depth experience working with the CU System.",
+    "Campaign website": "https://www.murrayforcuregent.com",
+    "Facebook": "https://www.facebook.com/MurrayforCURegent",
+    "Twitter": "https://twitter.com/richardmurray_1",
+    "Why are you seeking public office?": "I am everything I am because of the University of Colorado--the education it provided, the experiences it gave me, and the doors it opened. CU has been a central part of my life for 20 years. As a dedicated two-time CU Boulder alum and former Student Body President, I deeply care about the future of the next generation of Coloradans and working to solve the important issues facing higher education. I know firsthand the financial burden imposed on students to obtain a college degree, and I have the experience and passion to tackle the issue starting on day one.",
+    "What will your top three priorities be if elected?": "Academics, Affordability, and Community. In order for students to have access to attend CU, we must address the rising cost of attendance. Students should not be forced to incur decades of debt to obtain a degree. CU is a world-class research institution and we must continue to advance academic excellence in the classroom, in research, and in experiences for students beyond the classroom that will position them to obtain jobs upon graduation. On all of our campuses, we must foster a community where everyone is safe and feels welcome--as we say at CU, we must stand Shoulder to Shoulder.",
+    "The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.": "These priorities are not mutually exclusive. We must find ways to lower in-state costs for our students. This issue is multiplied by the pandemic as revenue decreased. I will work closely with the CU Administration on solutions so CU comes out of the pandemic more innovative, more cost efficient, and stronger, all with the goal of minimizing layoffs, lowering tuition, and increasing financial aid sources. This includes an in-depth review of the budget, working with our alumni and business community on advancement and scholarships, and seeking increases in state funds (which have dropped dramatically over the past 20 years).",
+    "Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?": "The decision for some in-person instruction at the Boulder campus was properly made based on the available data and safety measures implemented. While there has been an increase in COVID-19 cases there, those cases have not been the result of known classroom transmissions; rather, more likely due to social gatherings. The other three campuses have not had similar experiences, which supports the decision-making done over the past several months. Also, our students are being charged for in-person instruction but with only hybrid or fully virtual options available, and without a reduction in price. Many students understandably want in-person classes.",
+    "The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?": "While the selection of CU Regents is via elections, as required by the Colorado Constitution since 1876, the role of a Regent must go beyond politics. As set out in Regent policy, Regents have a fiduciary responsibility to exercise their powers and duties in the best interest of the public, the University, and the Board, and are expected to serve the public trust. This must be done with independent judgment. Ultimately, if voters believe a Regent has not lived up to his or her obligations, they have a unique ability to vote them out of office in the next election.",
+    "The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?": "According to the 2019-20 CU Diversity Report, there were 20,741 students of color enrolled in Fall 2019 across the CU System, representing 30% of enrolled students, which was up 92% since Fall 2010. Per the Report, undergraduate enrollment of diverse students in Boulder was 26.5%, whereas ten years ago it was only 15%.  However, enrollment of Black students has not increased in the past 10 years; an issue we must address. CU must work on attracting, recruiting, and retaining students, and faculty and staff, of color--including scholarships and creating a safe community with a sense of belonging for everyone."
+  },
+  {
+    "District": 6,
+    "Party": "Democratic Party",
+    "Name": "Ilana Spiegel",
+    "Age": 51,
+    "Place of residence": "Englewood",
+    "Profession": "Education Advocate",
+    "Education": "B.A. – English and Economics – Wellesley College  M.A. – Education – Columbia University",
+    "Family": "Husband of 25 years Dr. Jeff Spiegel, mother to Max, Charlotte, Jack and Ruthie",
+    "Experience": "5+ Years as Classroom Educator\n10+ Years as Staff developer, coach, and public education advocate and consultant\nEducation columnist\nEducation advocate\nColorado Task Force on Standards & Assessment",
+    "Campaign website": "https://www.ilana4regent.com/",
+    "Facebook": "https://www.facebook.com/IlanaForCURegentCD6",
+    "Twitter": "https://twitter.com/ilana4regent",
+    "Why are you seeking public office?": "As a mother of CU students and educator I’m running to make CU a flagship for our nation, a place where young people from all different backgrounds can obtain a world class education.  I have a 360 degree view of public education, and a track record of fighting for policies to eliminate opportunity gaps for students of color, students with disabilities, and low income and first generation students, in addition to expertise in education funding and budgets.  My background as a public school teacher, and 20+ years of public service have prepared me to serve as our next University of Colorado Regent.",
+    "What will your top three priorities be if elected?": "Today’s students are in a pinch: more jobs require  a post secondary degree or credential and the cost of obtaining a degree has skyrocketed. That’s why I am prioritizing:\n\nAffordability ~ We must control the costs of higher education\n \nAccessibility (Inclusivity) ~ The doors of higher education must be open to all Coloardans, regardless of background or wealth.  Empowering our next generation starts  ensuring everyone is involved.\n\nOpportunity ~ Public education should be applicable, cutting edge, and relevant to students and the next generation of jobs",
+    "The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.": "CU needs new, bold leadership to advocate for resources.  Our ability to enroll low income students is key to the future financial stability of CU.  The only populations of high school graduates expected to grow over the next decade are minorities and low income students.  To provide the next generation with pathways to higher education, we must fundamentally reform our system for financing higher education by:\nExpanding the scope and size of PELL grants\nMoving federal financial aid means testing to tax filing\nMoving away from debt financing to Income Sharing Agreements\nCreating Promise programs that offer free tuition",
+    "Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?": "The coronavirus pandemic has highlighted the premium and value students and families place on a robust, in person, on campus, residential post secondary education.  By returning to in-person learning, the University of Colorado was responding to this demand, while using science, data, and guidance from public health officials to change course when the health of the community was at risk.  Given zero transmission in classrooms, we have the opportunity to continue course corrections with regard to transmission happening off campus with adequate testing, and ensuring off campus compliance with public health requirements.",
+    "The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?": "It’s democratic to let people vote. Representing constituencies and the interest of the CU campus communities are not mutually exclusive. In contrast to more recent boards, historically the regents were collaborative, collegial and funcional. For example, in the 1930s, then CU President George Norlin stood up to the Ku Klux Klan governor of Colorado who offered him legislative support in return for firing Jewish and Catholic faculty.  He could not have done this if regents were “selected” or “appointed”.  Likewise, it was elected regents who kept CU Boulder student government alive when the administration tried to defund them.",
+    "The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?": "CU also ranks last in diversity in the PAC12.  It’s time to do more. To address this issue we need to listen to our students, faculty, and staff by adding and following a system-wide CU Anti Racist Creed, and implementing action items for the reduction of racial injustices from the Black Student Collective on the CU Anschutz Medical Campus.\n \nStudent groups are demanding that CU engage and include BIPOC led student, staff and faculty groups in every planning meeting, conversation, document and implementation of anti racism efforts across CU and include accountability checks at every step of the way. CU Denver will become an HSI (Hispanic Serving Institution) in 2021 and Boulder will need to step it up or face the consequences when enrollment goals fall short."
+  },
+  {
+    "District": 7,
+    "Party": "Democratic Party",
+    "Name": "Nolbert Chavez",
+    "Age": 53,
+    "Place of residence": "Lakewood",
+    "Profession": "CU Denver Administrator",
+    "Education": "Masters in Political Science and Public Policy-CU Denver",
+    "Family": "Married with grown daughter",
+    "Experience": "Former four term state legislator (1994-2002)",
+    "Campaign website": "http://chavezforcu.com",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "To bring civility back to the CU Board of Regents",
+    "What will your top three priorities be if elected?": "Shared governance \nDiversity, Equity & Inclusion\nIncreased State Funding",
+    "The pandemic has created even more financial pressure on Colorado's already squeezed universities. If elected, would your highest priority be minimizing layoffs, keeping tuition as low as possible or providing financial help to low-income students? Explain your answer.": "Yes, as the states 3rd largest employer, we have an incredible impact on Colorado’s economy. We also have a responsibility to keep our tuition a low as possible, and the pandemic has highlighted how our low income students need additional support. Including computer and internet access.",
+    "Did the University of Colorado system make the right decision in returning to in-person learning this fall? Why or why not?": "Each campus is different. There has not been a problem on the CU Denver, CU Colorado Springs, or CU Anschutz medical campus. \n\nCU Boulder needs to do more to control transmission among their students.",
+    "The CU Board of Regents is one of the few university governing boards selected via partisan elections. If elected, would you feel beholden to represent the views of the constituents who elected you or to do what’s in the best interest of the CU campus community?": "The CU community should be our focus, not constituents. Having statewide representation is valuable but it shouldn’t be a stepping stone to higher office.",
+    "The University of Colorado Boulder’s enrollment was just 2.5% Black students and 12% Latino students in 2019. A student group is calling out the administration for not doing enough for students of color. Should the system do more to help them succeed? If so, what? If not, why not?": "Systemic racism is real and the Board of Regents need to prioritize organizational barriers that keep students, staff and faculty from succeeding."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

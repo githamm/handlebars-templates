@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Colorado State Senate Handlebars template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?</strong>
+            {{this.[Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?]}}
+            &nbsp;
+            <strong>Have your views on policing and racism in Colorado changed this year? If so, how?</strong>
+            {{this.[Have your views on policing and racism in Colorado changed this year? If so, how?]}}
+            &nbsp;
+            <strong>Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?</strong>
+            {{this.[Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?]}}
+            &nbsp;
+            <strong>Should Colorado consider any new gun laws? If so, which do you support?</strong><br>{{this.[Should Colorado consider any new gun laws? If so, which do you support?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 19,
+    "Party": "Republican Party",
+    "Name": "Lynn Gerber",
+    "Age": "",
+    "Place of residence": "Arvada",
+    "Profession": "Unanswered",
+    "Education": "Unanswered",
+    "Family": "Unanswered",
+    "Experience": "Unanswered",
+    "Campaign website": "https://lynngerberforsd19.com",
+    "Facebook": "https://www.facebook.com/LynnGerberSD19",
+    "Twitter": "https://twitter.com/LynnGerber19",
+    "Why are you seeking public office?": "When I was born, I was given up for adoption. A wonderful family of educators adopted me. Still, I struggled in school. Luckily, my school had a vocational and technical program. Once I enrolled in this program and took control of my education, I thrived. After school, I went on to a long and successful career. I never forgot how important my education was to my success. Now, I’m running to end the myth that kids who don’t go to school are failures and to ensure that every child has access to the same opportunities that I did.",
+    "What will your top three priorities be if elected?": "Why is three the universal number of priorities that a politician must have? Is this taught in journalism school somewhere?\n\nI’m running to ensure that every kid in Colorado can access the same vocational and technical education opportunities that I had. If I can get that done at any point in my term I will consider the whole thing a success.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Unfortunately, our healthcare problems were created by the Federal government and they’ll have to be solved there.\n\nInstead of doubling down on policies that have failed, I’d like to see us try something truly novel -- a free-market approach to healthcare. Let’s mandate upfront, transparent pricing and coverage and then throw open the doors to allow people to buy any policy they want. Anyone who has had Lasik eye surgery can attest to the fact that competition, not subsidization, is the best remedy to rising prices.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "Police who cross the line, trample on citizens’ rights, or break the law should be prosecuted… aggressively. What baffles me is that this view is apparently controversial or revelatory. People, even police, should bear the consequences of their actions. But entire groups of people, including police departments, shouldn’t bear the guilt for the actions of a few bad actors.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Why is the assumption that I would take any steps on these issues as a lawmaker? Just because these are the priorities of the Denver Post doesn’t mean they’re my priorities. I don’t even view the two as conflicting aims.\n\nI’m running to focus on our education system and expanding the options children have to prepare for their future. Not to pick economic winners and losers.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "This question is a nice illustration of one of the most subtle and persistent biases in the media -- that there should always be a new law.\n\nThe laws we currently have are either unenforceable or unenforced. Maybe we should start with making the existing laws work before creating even more meaningless legislation for politicians to slap on campaign mailers."
+  },
+  {
+    "District": 19,
+    "Party": "Democratic Party",
+    "Name": "Rachel Zenzinger",
+    "Age": 45,
+    "Place of residence": "Arvada",
+    "Profession": "Teacher",
+    "Education": "Bachelor of Arts and Master of Arts degrees in Education, both from Regis University.",
+    "Family": "Rachel is married and raising her two high school aged children in Arvada. in",
+    "Experience": "Prior to the legislature, served on the Arvada City Council. Currently, a member of the Joint Budget Committee and Chair of the Senate Appropriations Committee.",
+    "Campaign website": "https://www.rachelforcolorado.com/",
+    "Facebook": "https://www.facebook.com/RachelZenzingerInOffice",
+    "Twitter": "https://twitter.com/Zenzinger_AtoZ",
+    "Why are you seeking public office?": "Since early adulthood, I have dedicated myself to projects and organizations that help make our country a better place to live. My job in the Senate has been the most rewarding in that regard. I believe I have had an optimal impact, and I want to build upon the successes I have enjoyed on behalf of my constituents. In areas of public education, transportation, healthcare and more, I can see the evidence of my work, and it is apparent that some of our communities’ most vulnerable populations have particularly benefitted.",
+    "What will your top three priorities be if elected?": "I have seen that the most effective legislators are the ones who understand it is indeed possible to work on eight or 10 or more bills at one time, with equal amounts of passion. But if I had to choose three areas where I think Colorado can most improve everyone’s quality of life, it’s in the areas of public education, transportation and healthcare. The last item, healthcare, has become increasingly critical this year, as it is affecting so many other tangential issues.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Even after the implementation of the Affordable Care Act, we still have Coloradans who can’t get the healthcare they need; or the cost of the healthcare is bankrupting them. So it’s a situation we need to continue to explore. If we can find a way to implement a public option without destroying the private insurance industry’s infrastructure AND still preserving individual rights, I’m in favor. If we can find a way to make Medicare for All affordable, I’m also in favor. But that’s a big “if,” especially in the current budgetary environment.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No. I support our law enforcement officials who conduct themselves within the moral limits of their authority, and I always have. I also believe we should listen to any minority groups who want to make us aware of prejudice, racial behavior or other discriminatory practices. And whatever civil way in which they choose to make us aware, I strongly encourage. We have ignored or minimized the plight of Black, Indigenous and other people of color for too long.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "This does not need to be an either-or question. We need to preserve Colorado’s oil and gas industry WHILE we address climate change. I believe it’s important to recognize the negative effects of climate change (both proven and potential), and we need to find ways that the oil and gas industry can continue to provide us with the vital energy upon which we all rely. I support the continued exploration of technological ways in which to make the industry safer; and the safety aspect must be paramount.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "First, I would like to see our state make every effort to enforce the gun laws now in place.  Our judicial branch has determined that those laws are all consistent with the U.S. Constitution, the majority of my constituents believe they make our communities safer, and so I am supportive. But to be effective, those laws need to be applied evenly across the board."
+  },
+  {
+    "District": 21,
+    "Party": "Republican Party",
+    "Name": "Martin Mendez",
+    "Age": 57,
+    "Place of residence": "Denver",
+    "Profession": "Color Reproduction Specialist",
+    "Education": "Some college",
+    "Family": "Yes, Names kept private",
+    "Experience": "15 years political volunteer experience.",
+    "Campaign website": "https://www.electmendez.co",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am seeking public office to make sure that the State government remains small, that  public money is being used responsibly and that the State is held accountable to the people.",
+    "What will your top three priorities be if elected?": "My top three priorities are taxation, homelessness and public education.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "No. The private sector can always do a more efficient job of providing healthcare than the State can ever hope too provide.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No. I have thought for many years that Police Unions that protect their law-breaking, racist \"brothers\" need to be held accountable in a court of law. Police Unions are the problem.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Definitely striking a balance between the two is the best choice.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Yes. I would support having armed officers in the schools."
+  },
+  {
+    "District": 21,
+    "Party": "Democratic Party",
+    "Name": "Dominick Moreno",
+    "Age": 35,
+    "Place of residence": "Commerce City",
+    "Profession": "State Senator",
+    "Education": "Bachelor's, Georgetown University, H.S. Diploma, Adams City High School",
+    "Family": "Son of Domingo and Adelia Moreno",
+    "Experience": "State Senator (2016-Present)\nState Representative (2012-2016)\nCity Council, Commerce City (2009-2012)",
+    "Campaign website": "http://dominickmoreno.com",
+    "Facebook": "http://Facebook.com/dominickmoreno21",
+    "Twitter": "http://twitter.com/domoreno",
+    "Why are you seeking public office?": "I am running for re-election to continue the progress we've made in recent years. In my time in the legislature, I've sponsored bills to provide universal breakfast to all children in lower-income schools, raise wages for home health care workers and provide transportation services to foster children so they can remain in the school of origin. I have served our community in elected office for over a decade and I look forward to continuing to represent you and address your concerns.",
+    "What will your top three priorities be if elected?": "My top 3 priorities include continuing to work on policies that raise wages for low and medium wage workers and ensure the wealthiest people pay their fair share. I also plan to build on prior work to help reduce the price of health care. Lastly, I will work on solutions for our aging infrastructure and secure more funding for transportation.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I support establishing a public option. Allowing more people to enroll in publicly provided health care plans will force private health insurance companies to keep costs low and pass on savings to consumers.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "A \"one size fits all approach\" to law enforcement is not appropriate and I believe local communities deserve a voice in how they want to be policed. The public dialogue regarding de-escalation of aggressive policing and establishing more community and mental health resources is long overdue.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "I believe climate change is a real threat that requires real and immediate solutions. In recent years, we've passed legislation that requires industries to reduce greenhouse gas emissions and have made it easier to purchase and own zero-emission vehicles. More steps like these are necessary to prevent irreversible damage to our climate and environment.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "In recent years, Colorado has responded to mass shootings and gun violence by requiring universal background checks and limiting high capacity magazines. I supported both of these measures. I support additional policies that promote responsible gun ownership and ensure safe storage of firearms."
+  },
+  {
+    "District": 25,
+    "Party": "Democratic Party",
+    "Name": "Paula Dickerson",
+    "Age": 51,
+    "Place of residence": "Thornton",
+    "Profession": "Teacher",
+    "Education": "Education Specialist in Leadership",
+    "Family": "My husband is my high school sweetheart. We have been married for 26 years. We have a 19 year old son.",
+    "Experience": "I have been a teacher for 25 years. I am an active union member. I am a qualified leader that has worked on education policy at the school, district, state, and national levels.",
+    "Campaign website": "https://www.paulaforcolorado.com/",
+    "Facebook": "https://www.facebook.com/PaulaforSD25/",
+    "Twitter": "https://twitter.com/PaulaForCO",
+    "Why are you seeking public office?": "I am seeking public office because I care about children and their families. I want to protect education funding and work toward equity in public schools. I have faced tough times and I understand how Coloradans are struggling to support their families. In the Senate, I will work to rebuild an economy where people can do more than just get by. I believe everyone needs access to affordable healthcare. I am running to provide compassionate leadership and represent the voices of everyone.",
+    "What will your top three priorities be if elected?": "My top three priorities include protecting and increasing funding for public education while working toward a fair and equitable system where all children will succeed. Second, fighting for affordable, and accessible healthcare that protects coverage for preexisting conditions is a must. A strong focus on an economic recovery with good-paying union jobs where people who work hard can do more than just try to make ends meet. I care about so many other important issues. Like so many people, my top three priorities are education, healthcare and the economy.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Yes, Healthcare is a human right. I support a public option here in Colorado, that also includes an expansion of medicare and medicaid toward vulnerable communities, especially those with low incomes and disabilities.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "Yes, my views on policing and racism in Colorado continued to change this year as part of a years long journey to learn about and engage with the reality of structural racism in our police, our public schools, and our society at large. We must listen, learn, and put in the hard and often uncomfortable work to address these structures and make Colorado a truly equitable place.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "The greatest importance of our lifetime is addressing climate change. It's also an economic issue; as a lawmaker, I would fully support measures to promote renewable energy right here in Colorado by expanding our tax incentives for the manufacture of the infrastructure required for the transition to renewable energy, as well as the ability for rural landowners to profit off of the placement of wind and solar farms on their land. Renewable energy can not only save our forests and waterways, it can transform and invigorate our rural economies.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Keeping children and our communities safe through common-sense gun legislation is our responsibility. Colorado should require a permit to open carry, just like we do for concealed carry. If a person wants to go into a public place with a gun, they should be required to demonstrate that they can handle it safely and have purchased the gun legally."
+  },
+  {
+    "District": 26,
+    "Party": "Democratic Party",
+    "Name": "Jeff Bridges",
+    "Age": 40,
+    "Place of residence": "Greenwood Village",
+    "Profession": "State Senator",
+    "Education": "Arapahoe High School, Kenyon College (B.A. Political Science), Harvard (Master of Divinity)",
+    "Family": "I live with my wife AnnMarie and our floppy dog Walt 10 minutes away from our parents.",
+    "Experience": "I grew up here, handled military and small business policy for Ken Salazar in the US Senate, served in the Colorado House 2016-2018, and sponsored and passed Full Day Kindergarten and Paid Sick Leave.",
+    "Campaign website": "http://bridgesforcolorado.com",
+    "Facebook": "https://facebook.com/bridgesforcolorado",
+    "Twitter": "http://twitter.com/jeffbridges",
+    "Why are you seeking public office?": "I am running for re-election because I want to continue helping all Coloradans earn a good life for their families. Campaigns are not merely a path to public service—done right, campaigns are public service itself. The relationships we build during campaigns is what allows me to bring my neighbors’ stories and priorities with me to the Capitol.",
+    "What will your top three priorities be if elected?": "Stopping the spread of COVID, getting Coloradans back to work so our economy comes back even stronger than before, and protecting funding for K-12 public education.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Every Coloradan deserves to access to affordable healthcare, and no Coloradan should ever have to choose between buying groceries and seeing their doctor. I supported legislation to investigate the costs and benefits of a public option, and I sponsored and passed legislation to automatically enroll any Coloradan who qualifies into Medicaid—the more people who have healthcare the lower the costs for all of us. To further cut costs, I co-sponsored a bill to create a reinsurance program that has already reduced prices on the individual market by 18%, and co-sponsored legislation to bring more transparency to pricing at hospitals and for prescription drugs.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "Systemic racism has plagued our state and our country for generations. As a legislator, it’s my responsibility to do everything I can to eliminate discrimination against black and brown Coloradans. As the only state legislator with a divinity degree, I believe this is not just a civic duty, it is also a moral imperative. I was proud to be an original sponsor of SB217, and I’m incredibly proud of our legislature for passing it with near-unanimous bipartisan support. All those who break the law must be held accountable—especially including those sworn to uphold and defend the law.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Climate change is real, it's caused by humans, and as a state that will be hit hard by climate change, we have an even greater responsibility to act. That's why in 2018 I sponsored the most aggressive climate change bill in Colorado history, which passed the following year in 2019 year with bipartisan support. Not only is clean energy good for the planet, it’s good for our economy. Increasing wind and solar production means more good-paying jobs for Coloradans, and a healthy environment we can all enjoy.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "A friend of mine hid in the choir room at Columbine High School for three hours. I walked the hallways as a student at Arapahoe High School where Claire Davis was later killed. The STEM School shooting and the shooting of Douglas County Sheriff’s Deputy Zack Parrish both took place just steps outside of my Senate district. And I serve alongside a colleague who lost his son in the Aurora theater shooting. My life and the lives of my constituents have been touched by gun violence. I strongly support—and I believe we have a moral obligation to enact—reasonable, evidence-based laws that will keep our community safe. That’s why I sponsored the Extreme Risk Protection order bill, support universal background checks, and safe storage of firearms."
+  },
+  {
+    "District": 26,
+    "Party": "Republican Party",
+    "Name": "Bob Roth",
+    "Age": 61,
+    "Place of residence": "Aurora",
+    "Profession": "Business Development Consultant",
+    "Education": "Some college",
+    "Family": "Daughter and grandson who live here, and a son who is a Soldier with four overseas tours.",
+    "Experience": "Decades on various industry and civic boards, 9 years on Aurora City Council",
+    "Campaign website": "https://www.rothforsd26.com/",
+    "Facebook": "https://www.facebook.com/rothforsd26",
+    "Twitter": "https://twitter.com/ZillaCo",
+    "Why are you seeking public office?": "I believe the people of Colorado are better served by a split legislature. When both chambers and the Governor's seat are in single party control we don't function collaboratively. In my years in municipal government, I served on numerous regional and state-wide boards, such as the Executive Board of Colorado Municipal League, Chair of Denver Regional Council of Governments, Mile High Flood District, The Water Now Alliance and a Governor appointee to the Regional Air Quality Council. These prepared me well for this role and have given me unique insights into many of the issues the citizens of Arapahoe County and Colorado find important.",
+    "What will your top three priorities be if elected?": "Getting Colorado re-opened and our economy back on track. We have to create the right atmosphere, through less regulation and easier processes, to allow businesses to succeed. And then get out of the way and let them do what they do best.\n\nSupport and protect the women and men who ensure Colorado's safety and security. Give them the ability to keep our streets safe and our businesses and residents from harm.\n\nWork on an initiative that would allow, and encourage, kids who may not want to pursue a traditional four-year higher education the ability to succeed in the trades.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "No. Government run healthcare and the government setting price points is not a good solution. If we go that direction, I believe that many insurance companies will abandon the Colorado marketplace. And it is even more problematic in rural parts of the state. I would support an alliance of insurers, healthcare providers and consumers negotiating a total cost system. That system would include published prices so a consumer can shop for health services just like we do for everything else.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "I do not believe that these are mutually exclusive. I am a supporter of the Oil and Gas Industry. But I am also an \"all-of-the-above\" person, believing that if we continue to pursue innovations in wind, solar and geothermal, in addition to O&G, we will be in a much better situation. As a former member of the Regional Air Quality Council as well as a LEED Accredited Professional, I understand sustainable energy sources and designs but still know that harvesting and using our natural resources is important. As is protecting our environment by using best management practices in all of those pursuits.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "No. When a crime is committed with a firearm, the perpetrator is already breaking the law. I believe it is foolhardy to believe that if we pass another law, it will cause someone to change their mind and their heart."
+  },
+  {
+    "District": 27,
+    "Party": "Democratic Party",
+    "Name": "Christopher Kolker",
+    "Age": 48,
+    "Place of residence": "Centennial",
+    "Profession": "Financial Planner/Investment management",
+    "Education": "BA Secondary Education, Certified Financial Planner™",
+    "Family": "Married to Tara, two daughters",
+    "Experience": "Former high school social studies teacher, small business owner, former candidate for HD 38",
+    "Campaign website": "http://www.kolkerforcolorado.com",
+    "Facebook": "https://www.facebook.com/KolkerforColorado/",
+    "Twitter": "https://twitter.com/ChrisKolkerCO",
+    "Why are you seeking public office?": "As a Certified Financial Planner™, I am an expert in finding creative solutions to budget problems.  I will use my knowledge and experience in finance to create solutions to sustain our economic recovery while still reflecting my values as a former high school teacher for well funded public education, affordable access to mental healthcare, and equity in quality of life for all in Colorado.",
+    "What will your top three priorities be if elected?": "Truly funding our public education system that is equitable with high expectations for every child and school, where children’s minds are nurtured and challenged.  Affordable health care that must include mental health care coverage.  We must continue to push for equal rights for all, protections for consumers, workers, retirees, reproductive rights and our environment through an efficient, transparent, and fair government.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I prefer health care coverage for all that is implemented at the federal level so people of all states can receive quality healthcare.  However, we should address it at the state level since we lack the leadership in D.C.  Medicare for all is my preference based on my work as a financial planner with retirees who receive the benefit at age 65.  Medicare is a powerful plan providing basic, cost efficient coverage, with an opportunity for an individual to supplement it within their budget.  It leverages the power of all people enrolled to create negotiated cost savings through all levels of healthcare.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "I have always understood that there was more danger to people of color than to myself as a white male during encounters with law enforcement.  Unnecessary and aggressive tactics have been used for generations against people of color.  However, this year with the use of cameras and social media, the tipping point for change has been reached.  It is just the beginning of reforming policing methods, attitudes, and accountability.  It is also an opportunity to bring effective change in addressing systemic racism, mental health, uniform police training, and methods of law enforcement.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Climate change is the issue that we cannot ignore.  The scientific world has been warning us for years of the dangers of carbon emissions and those warnings are coming to fruition through unprecedented weather events, forest fires, heat waves, and drought.  We must stand up and address the future of our planet, the future we are leaving to our children, while supporting the energy workers whose lives are disrupted with resources on job retraining and transition.  We can replace jobs and provide economic support, we cannot replace our air and water.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "We should consider any law that would protect the population, especially the vulnerable, from the irresponsible actions of those who would use firearms to harm another or themselves.  One particular law I would support is a waiting period of 48 hours between purchase and delivery of a gun to prevent acts based on impulse as seen when one woman caused the shutdown of all our metro schools in 2019."
+  },
+  {
+    "District": 27,
+    "Party": "Republican Party",
+    "Name": "Suzanne Staiert",
+    "Age": "",
+    "Place of residence": "Centennial",
+    "Profession": "Attorney",
+    "Education": "University of Wyoming",
+    "Family": "Single mother to three daughters",
+    "Experience": "15 years representing South Metro local governments\n7 years as Colorado Deputy Secretary of State",
+    "Campaign website": "https://www.suzannestaiert.com/",
+    "Facebook": "https://www.facebook.com/SuzanneStaiertCO",
+    "Twitter": "https://www.instagram.com/suzannestaiertco/?hl=en",
+    "Why are you seeking public office?": "After living, working, and volunteering in this community for 20 years, I understand the unique issues to this District. I’ve spent the last year talking to my neighbors and voters across the District. Issues like education, the economy, and the safety of our children have come up again and again. These issues are important to me, and more so they are important to the voters.  My first priority is to represent the voters and this is why I am seeking public office.",
+    "What will your top three priorities be if elected?": "Economic development, along with expanding educational opportunities and government transparency are at the top of my agenda. This District has a lot of small business owners and working professionals that rely on a strong economy. The COVID-19 pandemic has slowed the growth of our economy.  Focused investment in infrastructure and job creation will help bring certainty to the market for business owners.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Colorado already has a state-run program under the Affordable Healthcare Act. I don't support expanding a plan that would allow the government to set healthcare rates and require healthcare providers to accept them.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "I have always advocated for increased transparency and accountability for police. During my time representing local governments I've noticed that Colorado has a weak licensing process for police officers. This is an area where we could improve with support from police officers who understand the need for higher professional standards.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "I don't believe that these issues are mutually exclusive. The Colorado oil and gas industry has made huge strides in improving emissions and air quality. Like with any industry, if we want further improvement in this area we should consult experts in the field.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Colorado should consider enhancing the criminal penalties for using a weapon in the commission of a crime."
+  },
+  {
+    "District": 28,
+    "Party": "Democratic Party",
+    "Name": "Janet Buckner",
+    "Age": 73,
+    "Place of residence": "Aurora",
+    "Profession": "State Representative - HD 40",
+    "Education": "Bachelor of Science degree in Speech Pathology and Audiology from Ball State University in Muncie, Ind.",
+    "Family": "Twin daughters, Joy and Jennifer; my son, Jay; Jennifer’s husband, Floyd, Jay’s wife, Erin; and three granddaughters.",
+    "Experience": "Early in my career, I worked as a speech and language therapist. I also had a career as a medical sales executive. I currently serve as the State Representative in HD 40.",
+    "Campaign website": "http://www.janetbuckner.com/",
+    "Facebook": "https://www.facebook.com/repjanetbuckner/",
+    "Twitter": "https://www.twitter.com/repjanetbuckner",
+    "Why are you seeking public office?": "I am running for office because I believe that it is essential that we have strong leaders who are able to confront and solve the most pressing issues of today. I have a passion for public service and I have learned and accomplished a lot in my time at the legislature. I have demonstrated the ability to build bridges, work across the aisle, and build consensus with my colleagues, all without ever compromising my values and beliefs. It’s important that the person who succeeds Sen. Nancy Todd in SD 28 is able to get to work immediately on the important issues that Coloradans face. When I get to the state senate, I know that my experience will allow me to work with my colleagues to pass essential legislation that uplifts all Coloradans.",
+    "What will your top three priorities be if elected?": "1. Ensuring that everyone has access to quality health care, both preventative care and emergency care. \n\n2.  Making large investments in our education system, especially in communities of color and communities that have historically faced funding and resource shortfalls. \n\n3. Combating social injustices (racism, criminal justice, economic justice, and environmental justice).",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I believe that we need to make sure that every single Coloradan has health insurance. As the ACA is increasingly under attack, I think that it's imperative that we have either a public option or a program such as Medicare for All that would ensure coverage for everyone who has been left behind. We still have too many Coloradans who are either uninsured or under insured. It's important that we move forward with bold policy decisions to provide quality health care to everyone in our state.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "As a Black woman, I have always been aware of unfair police practices and racism in my community and throughout the nation. The prevalence of systemic racism has been at the forefront this year and I am even more determined to address these issues through policy changes. I am proud of the work that we have accomplished by passing SB20-217, and I hope that we can seize on community support and momentum to pass more reforms to combat systemic racism in our police departments and institutions.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "We should always prioritize the climate and the public's health and safety over any particular industry. Most of the leading scientists in the world agree that we must act fast when it comes to mitigating the impacts of climate change. I am completely on board with transitioning to 100 percent clean energy by 2050. Our state has an opportunity to lead on this issue. I see this as an opportunity to bolster our economy, protect future generations, preserve the environment, and ensure a healthy future for all.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "I support common sense gun policy that will protect the lives of Coloradans. We have done great work in this area with the passing of Extreme Risk Protection Order legislation. I am in favor of legislation to close loopholes that allow individuals to illegally purchase firearms. It's imperative that we protect our communities in Colorado while also respecting the rights of safe and responsible gun owners."
+  },
+  {
+    "District": 28,
+    "Party": "Republican Party",
+    "Name": "Karl Stecher",
+    "Age": 83,
+    "Place of residence": "Aurora",
+    "Profession": "neurosurgeon, retired",
+    "Education": "Harvard AB;Univ Maryland MD;intern WashU StLouis;residency Johns Hopkinsn Hospitaly",
+    "Family": "three daughters; three grandchildren",
+    "Experience": "retired neurosurgeon\nprecinct leader ~ 20 years\ntort reform committee CO\nnational Medicare carrier advisory committee\nworkers compensation committee, CO Medical Society",
+    "Campaign website": "http://stecher4senate.com",
+    "Facebook": "http://stecher4senate.com",
+    "Twitter": "",
+    "Why are you seeking public office?": "I want to represent Colorado values for my three daughters, three grandchildren, and my neighbors. I am fighting for their futures. I support helping people (and businesses) as they recover from COVID. I support law and order, with protections that have been missing in recent riots; a strong military (I served as an Army captain at Walter Reed during Vietnam); I want all pathways of education to be open...public, private, religious. Responsible development as we construct new housing and businesses, but protect the environment.  Strong Second Amendment supporter. I want good accessible medical care for everyone. Fairness in social media.",
+    "What will your top three priorities be if elected?": "Support for people and businesses affected by the shutdown\nPreserving the environment as we develop Aurora\nFree choice in education...public, private, charter, and at-home schools",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "The only state option I support is coverage for high risk patients for whom standard insurance is not affordable or practical..\n This is a good safety net for people with severe chronic conditions.\nMedicare does not cover dental, vision or hearing and requires a monthly premium.\nWe already have Medicaid, with close to free care for low income citizens.\nA government system would have the ambiance of a bureaucracy, not a caring medical one.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "It is saddening that Coloradans still feel divided.  I want us all to come together for a stronger Colorado.  This is my belief now and always has been. \nPolice have a necessary and dangerous job. I stand with them. I am appalled at how they are being hamstrung by politicians, therefore endangering their lives and the lives of our citizens.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "The climate has always been changing and we all know that.  When it was revealed that the base figures for \"man made global warming\" were fraudulent, the left changed the name to \"climate change.\" One must separate the two things, but they are not separated in the media now.  As an environmentalist, I want to protect the environment, but realize that carbon fuels and products are necessary now as alternative energy sources are being developed. I would favor investigations into  nuclear power in Colorado used in other states and countries with good success.\nI would need better information to find which fuel standards, etc., are indicated.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "I am a strong supporter of the Second Amendment.\nCriminals don't seem to pay much attention to gun laws."
+  },
+  {
+    "District": 29,
+    "Party": "Democratic Party",
+    "Name": "Rhonda Fields",
+    "Age": 66,
+    "Place of residence": "Aurora",
+    "Profession": "State Senator",
+    "Education": "Bachelor in Education and Master's Degree",
+    "Family": "Rhonda is the mother of one adult daughter, Maisha and has four grandchildren. Her family is the light of her life.",
+    "Experience": "",
+    "Campaign website": "http://RhondaFields.com",
+    "Facebook": "http://RhondaFieldsforColorado",
+    "Twitter": "hhtp://SenRhondaFields",
+    "Why are you seeking public office?": "Thousands of people are still struggling with the economic toll of the Coronavirus.  I'm running to build back our economy Post-COVID, funding our schools, ensuring affordable healthcare, housing, supporting vulnerable communities, those harmed by crime, and safer communities. Always a champion of human and civil rights.",
+    "What will your top three priorities be if elected?": "Over the years, the heart of my priorities have not changed. To focus on health and safety, affordable health care, adequate funding for public schools, access to housing, safer communities, human and victim rights, while protecting our public lands, water, air and vulnerable communities.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I am committed to protecting and expanding the Affordable Care Act to ensure that we all have access to affordable healthcare. We need a create public options so people can choose to join a Medicare-like plan or keep private insurance.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "Thousands of people in Colorado have taken part in demonstrations for racial justice, making Black Lives Matter the largest moment in U.S. history after George Floyd, Elijah CmcClain and others. To end police violence we must work together at the intersection of policing, gun violence and criminal justice reform.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Every Coloradan has a right to breathe clean air, drink healthy water, and have access to our public lands for generation to come. I will always be a champion for our environment.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "I will support specific gun reform policy that could make a real impact to save lives from gun violence."
+  },
+  {
+    "District": 29,
+    "Party": "Libertarian Party",
+    "Name": "Michele Poague",
+    "Age": 63,
+    "Place of residence": "Aurora",
+    "Profession": "Business manager and author",
+    "Education": "Some college",
+    "Family": "Unanswered",
+    "Experience": "I am a Colorado native, a political activist, and small business manager for over 35 years.",
+    "Campaign website": "http://michelepoaguelibertarian.info",
+    "Facebook": "http://www.facebook.com/PoaguePoliticalPhilosophy",
+    "Twitter": "",
+    "Why are you seeking public office?": "To work toward a smaller and less intrusive Colorado Government.",
+    "What will your top three priorities be if elected?": "Healthcare - Insurance is not healthcare, it is a for profit business.\nEducation - Bring the education process closer to home, eliminate federal intrusion.\nJustice Reform - End Qualified Immunity and Mandatory Minimums. Seek restorative measures over incarceration where possible.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "Health Insuance is not Healthcare. Insurance is a form of gambling, (You are betting you will get really sick, and the insurance company is betting you won't get sick enough to use up all the money you paid them.) I would seek to eliminate all forms of forced insurance. Let the hospitals offer indigent care and keep the insurance companies out of it.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No. I think our local police force has been over militarized. They used to be peace keepers and now they are law enforcement. I think race relations have improved greatly over the last 50 years but we still have a long way to go. We often make it an issue by making it an issue.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "I don't place a greater importance on either. We have a long way to go before solar and wind power can replace gas and oil, if it ever can. I don't believe taxing or giving tax breaks helps the environment; legislation helps corporations. I think we should have strong property rights and hold corporations liable to the property owners for the damage they cause.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "I strongly support the 2nd amendment. I believe the right to self-defense is essential to protect our country and should not be limited."
+  },
+  {
+    "District": 31,
+    "Party": "Democratic Party",
+    "Name": "Chris Hansen",
+    "Age": 45,
+    "Place of residence": "Denver",
+    "Profession": "Non-profit Director",
+    "Education": "BSc from Kansas State University; Master of Science from MIT; PhD from Oxford University",
+    "Family": "",
+    "Experience": "3 years of experience in the CO House representing HD6; Selected as a Marshall Memorial Fellow by the German Marshall Fund",
+    "Campaign website": "http://www.hansenforcolorado.com",
+    "Facebook": "https://www.facebook.com/hansenforcolorado",
+    "Twitter": "https://twitter.com/hansenforco",
+    "Why are you seeking public office?": "I’m running for office because I love this state, and want to continue to serve the people of Colorado with a focus on addressing our structural budget problems and tackling the climate crisis. Every day I walk into the Capitol I am humbled by the work that the voters have trusted me to do, and I am driven to make tangible, beneficial change in people’s lives. In the past four years, I have been proud of the work that my colleagues and I have accomplished, and I hope to get the opportunity to continue this work for another four years.",
+    "What will your top three priorities be if elected?": "My three top priorities are funding public education, combating climate change, and ending TABOR’s stranglehold on our state government—because these issues impact more people than anything else. If our schools are not funded adequately, then we are squandering our children’s future. If we do nothing to slow down climate change, then we are risking the health and wellbeing of people everywhere. And, if we let TABOR (and Gallagher) continue to handcuff our state budget, then we will drive families further and further into poverty by diluting services and reducing economic opportunities.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "While I was supportive of HB19-1004 in 2019, I was not supportive of the initial public option proposal that was introduced in the 2020 session. We have limited state level tools to reduce costs of healthcare for Coloradans, and at this time I think we need to carefully use reinsurance to help families. I am open to looking at creative options for lowering health care costs on the insurance market, and coop/group plans that lower overheads by reducing administrative costs and creating health care outcome collaboratives have shown promise in many jurisdictions.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "Yes. Though I have been aware of the institutionalized racism in America, I would be lying if I said the last few months didn’t change my perspective on the prominence and systemic nature of racism in our judicial and law enforcement systems. Additionally, the work last session to pass SB20-217 made me realize that, although this bill was a great first step in improving police transparency and accountability, we still have a long way to go.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "As someone who has spent over two decades working in the environmental and energy policy space, I recognize and understand the seriousness of climate change, and have built a career around tackling this issue with urgency. If re-elected I plan to take significant steps in addressing climate change by decarbonizing the natural gas sector, improving building electrification, addressing the carbon intensity of building materials, continuing to foster the adoption of electric vehicles and renewable energy, and working to ensure out state is on track to reach out emissions reductions goals set forth in HB19-1261.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Yes. A bill introduced last session that I supported was HB20-1356, a bill which would have tightened the penalties and regulations around lost or stolen firearms. Additionally, last session I was proud to co-sponsor HB20-1155, a bill that would have increased the penalties for not safely and securely storing a firearm, particularly around children. Though both of these bills were derailed by the pandemic, I look forward to supporting and sponsoring them again if re-elected."
+  },
+  {
+    "District": 31,
+    "Party": "Republican Party",
+    "Name": "Doug Townsend",
+    "Age": 61,
+    "Place of residence": "Denver",
+    "Profession": "Chief Financial Officer",
+    "Education": "BS in Accounting, Ball State University, Summa Cum Laude",
+    "Family": "",
+    "Experience": "I am a CPA, Chief Financial Officer who has led businesses in multiple states, and former School Board President.",
+    "Campaign website": "https://dougtownsendforyou.com/",
+    "Facebook": "https://www.facebook.com/Doug-Townsend-For-You-100433434909694",
+    "Twitter": "https://twitter.com/townsendforyou",
+    "Why are you seeking public office?": "I believe everyone has a right to make the important decisions that impact their lives.  Our current elected officials are socializing our State by taking over ever larger segments of our lives and economy, with little respect for the rights and liberties of our citizens.  I am a CPA, Chief Financial Officer and former School Board President.  I understand how high taxes and excessive regulation hurt our citizens and our business community.  I understand that parents are the most important people in the education of their children.  I want to fight to restore limited government, fiscal responsibility and equal application of the law so that our State government will once again allow you to pursue your personal American Dream, whatever that may be for you.",
+    "What will your top three priorities be if elected?": "1.\tRestoring parental & local control over K-12 education to allow every parent the opportunity to ensure that their child receive the best education possible.  Getting the State out of the business of micromanaging education to reduce waste of taxpayer’s dollars on central office and administrative functions allowing this money to be focused on the front-line education of our children.  \n2.\tRestore fiscal responsibility for the State of Colorado by protecting & strengthening the Taxpayer Bill of Rights and reducing the use of enterprises as work arounds to TABOR.\n3.\tCreating a true pro-business environment within Colorado by reducing legal & regulatory oversight and constraints mandating how business owners must conduct their businesses.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "No.  Coloradans overwhelmingly rejected this idea in 2016 by a 79%-21% vote.  The State must respect the will of its citizens.  These programs would give the State total control over the healthcare of Coloradans.  There are already access and treatment quality issues with Medicaid.  Why would we want to mandate that all citizens be subjected to these same types of constraints? Our legislators have shown that they do not know how to manage insurance coverage or costs by continually adding new mandates and creating a reinsurance program that ballooned in cost 9-fold within 8 months, driving up the cost of healthcare for all Coloradans.  A State based insurance program will also create constraints on availability of care when a Coloradan requires treatment outside of the State.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No.  I have always believed that discrimination against any person regardless of race, age, occupation, religious beliefs, gender, or sexual orientation is wrong.  Our police officers risk their lives every day providing our citizens safety and security.  Yes, there are some who have the wrong motives and fall well short of the behavior that every citizen reasonably expects of our police.  We must address those specific individuals and their specific actions rather than paint all officers as racist.  Failure to make this distinction will result in an increase in the riots, anarchy and overall crime that Denver has experienced in recent months.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "We must take a balanced approach to both issues. The State has ignored the will of Coloradans by legislating restrictions on the oil & gas industry that the voters rejected in 2018. Oil & gas is a significant component of our economy, a source of good paying jobs for hard-working Coloradans, and generates substantial tax revenue to support our schools and other needs. Everyone wants clean air and water. For 50 years, Americans have fought to protect our environment and continue to do so today. Rather than the State picking winners and losers in how we clean up our environment, I want to empower all of our businesses and our citizens to come up with creative solutions to help address this problem while also supporting the growth of our economy.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Now more than ever Colorado should respect the Constitutional rights (Federal & State) of its citizens to keep and bear arms to protect themselves and their property.  I support a constitutional carry so citizens can exercise their rights without having to pay a fee to the State.  Our current system places our most vulnerable citizens, low-income Coloradans who live in the most dangerous areas, at risk by making it more difficult for them to protect themselves.  I support amending the Red Flag law to focus on providing mental health treatment rather than simply denying an individual the right to possess a firearm.  I support a reduction in \"gun free zones\" as these make our citizens lass safe when criminals view these areas as soft targets."
+  },
+  {
+    "District": 33,
+    "Party": "Democratic Party",
+    "Name": "James Coleman",
+    "Age": "",
+    "Place of residence": "Denver",
+    "Profession": "State Rep. HD 7",
+    "Education": "Oral Roberts University",
+    "Family": "Married to Shayna Coleman and has two children, James and Naomi, age 9",
+    "Experience": "",
+    "Campaign website": "http://www.colemanforcolorado.com",
+    "Facebook": "http://colemanforcolorado",
+    "Twitter": "",
+    "Why are you seeking public office?": "I have been representing my constituents in HD7 for the last four years. Running for Senate District 33 will afford me the opportunity to continue to serve my community throughout the Denver Metro area. I hope voters will take a moment to learn about who I am and why I am running for SD 33.",
+    "What will your top three priorities be if elected?": "My top 3 priorities are education, economic development, and public safety. When we campaigned in 2016 for our first house term, our community determined we would focus on these issues. As we've fellowshipped and knocked doors in our community since then, these priorities are the same, and I will continue to advocate for these issues, and any new challenges to Senate District 33 that arise.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I support a public option health insurance solution that makes it so that healthcare availability does not discriminate between than have and have nots, and healthcare workers have the resources they need to provide high quality care without sacrificing their practice.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "No, my views on policing and racism in Colorado have not changed this year. My views have been solidified. I am a Black man.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "Addressing climate change is very important. That said, I place a greater importance on finding a way to provide clean, sustainable energy to Coloradoans without sacrificing our health, quality of air and water, and career and economic opportunities for our energy labor force.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "Yes. We should consider gun safety legislation that provides gun locks for free across the state."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

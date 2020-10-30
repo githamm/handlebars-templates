@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>District Attorney Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?</strong>
+            {{this.[Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?]}}
+            &nbsp;
+            <strong>What measures would you take, if any, to reduce the number of people held in pretrial incarceration?</strong>
+            {{this.[What measures would you take, if any, to reduce the number of people held in pretrial incarceration?]}}
+            &nbsp;
+            <strong>Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?</strong>
+            {{this.[Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 1,
+    "Party": "Republican Party",
+    "Name": "Matthew Durkin",
+    "Age": 49,
+    "Place of residence": "Littleton",
+    "Profession": "Chief Deputy District Attorney",
+    "Education": "JD University of Denver; BA University of New Mexico",
+    "Family": "Wife and three children",
+    "Experience": "Chief Deputy District Attorney\nDeputy Attorney General",
+    "Campaign website": "http://DurkinforDA.com",
+    "Facebook": "https://www.facebook.com/durkinforda/",
+    "Twitter": "https://twitter.com/DurkinforDA",
+    "Why are you seeking public office?": "As a Chief Deputy District Attorney in the First Judicial District Attorney’s Office and former Deputy Colorado Attorney General, it has been my honor to protect the community where I was born and raised, and where my wife and I are raising our family.  I love my community in Jefferson and Gilpin Counties, but I hate to see what is happening to it.  A crime wave that is fueled by a drug addiction crisis has descended upon Colorado.  By putting public safety over politics, we can push crime back by reducing one of the worst recidivism rates in the country.",
+    "What will your top three priorities be if elected?": "In 2019, Colorado set an ominous record with 1,062 overdose deaths, up from the previous year, and the previous record of 1,012 set in 2017.  At the same time, at nearly 50%, Colorado has one of the worst recidivism rates in the country.  My priority will be to implement effective drug treatment for offenders in the system to reduce recidivism.  Another priority will be to increase our transparency and communication with our community through the creation of a Citizens Advisory Committee.  Next will be to manage these priorities, maintain our standards, with shrinking budget resources.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "In the First Judicial District, we have a Critical Incident Response Team, that consists of detectives from each agency that provide immediate and impartial investigations of incidents involving the lethal use of force.  Investigators from other agencies, not involved in the incident, respond immediately, and conduct a complete investigation and presents the evidence to the District Attorney who determines if criminal charges are appropriate.  If charges are not filed, a report of all potential charges is released to the public.  This is a model for other jurisdictions around the country and a process the community and their legislators can trust.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "The purpose of bail is to assure that the charged individual returns for the benefit of the charged individual, victims, and for judicial efficiency.  Simultaneously, public safety must be considered when setting bond.  Reform efforts may be worthy, however, approximately 50% of all felons reoffend while on bond, creating more criminal liability for the offender, and more damage in the community.  COVID forced an experiment in eliminating nearly all cash bonds to reduce jail populations.  As a result, we have seen a surge in failure to appear at court appearances, and approximately 30% recidivism while on bond.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "Martin Luther King, Jr. said that “law and order exist for the purpose of establishing justice and when they fail in this purpose they become the dangerously structured dams that block the flow of social progress.”  Without law and order, there can be no justice, and justice can only be achieved within the fundamental institutions of law and order.  It is the District Attorney’s responsibility to pursue justice in each case based upon thorough and impartial investigations, regardless of who the suspect may be.   Through strong leadership, recruitment, and relentless training, we can fulfill that solemn responsibility."
+  },
+  {
+    "District": 1,
+    "Party": "Democratic Party",
+    "Name": "Alexis King",
+    "Age": 40,
+    "Place of residence": "Golden",
+    "Profession": "Attorney",
+    "Education": "Hollins University, BA; University of Denver, Sturm College of Law, JD",
+    "Family": "Parents, Husband, two children",
+    "Experience": "Admin, T.E.S.S.A.; Law Clerk, Denver District Court; Deputy DA, 1st JD; Magistrate Judge, 2nd JD; Attorney, Rocky Mountain Victim Law Center",
+    "Campaign website": "https://www.alexisforda.com/",
+    "Facebook": "https://www.facebook.com/Alexis4DA/",
+    "Twitter": "https://twitter.com/Alexis4DA",
+    "Why are you seeking public office?": "I am the only candidate who has fought for survivors in the courtroom and brought reform to this community. During my decade of service as a Deputy DA here, I designed programs to keep kids out of the system and addressed human trafficking through prosecution and policy. Unlike my opponent, I have seen the system from more than one angle, as a magistrate judge working on bail bond reform, to a victim rights attorney with the preeminent nonprofit in Colorado. I have a track record of transformative and collaborative leadership that stretches far beyond the bounds of the courthouse.",
+    "What will your top three priorities be if elected?": "My top issue will be keeping our community safe by ensuring we are prioritizing the ethical and effective prosecution of violent people who are a substantial risk to our community. This prioritization goes hand in hand with expanding our diversionary options for low-risk, low-level folks who can stabilize in our community without criminalization. It also means, ensuring our jail has the capacity to house people who are too dangerous for our streets, and increase transparency and accountability in our DA’s Office so we can dialogue with our community about inequities in our system and how we can improve our practices.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "Ethical and effective prosecution of any crime is dependent on the expertise and professionalism of law enforcement and the public’s trust in their actions. Prosecutors depend on police to investigate and gather reliable evidence to address harm in the community. I supported SB-217 - a sweeping, first-of-its-kind police accountability law in the country. As SB 217 is implemented, it will need improvement, and policy makers should regularly review if additional legislation can address community and public safety needs. Prosecutors and police are first and foremost public servants, and should be accountable to the communities we serve.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "Jeffco must commit to evidence-based and fiscally responsible bond reform. Over incarcerating low-level and low-risk folks destabilizes them and increases recidivism. The DA’s Office should not be in the business of increasing crime with archaic bond practices. Having already led bond reform as a magistrate judge, I will ensure that the jail is for dangerous people, not folks who can be stabilized in the community. Further, by expanding our diversion model, people can engage in treatment and restorative justice without the jail. Local law enforcement is already leading this effort, it’s time for the DA’s Office to lead too.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "Since I began this campaign, before George Floyd’s murder, I was championing data collection and transparency to address systemic racism. The DA is a powerful public servant who is obligated to answer tough questions including whether people are treated differently because of their identity. Once answered, we must dialogue with our community, including police, about moving forward together with solutions to address systemic inequity and public safety. Under my leadership, we have an opportunity to raise the bar in government transparency. The integrity of the justice system is earned and we will do so through accountability to those we serve."
+  },
+  {
+    "District": 2,
+    "Party": "Democratic Party",
+    "Name": "Beth McCann",
+    "Age": 71,
+    "Place of residence": "Denver",
+    "Profession": "attorney",
+    "Education": "Wittenberg Univ. BA; Georgetown Law JD",
+    "Family": "husband;  2 children",
+    "Experience": "current Denver DA; prior state representative; Deputy Attorney General; Manager of Safety, \nSafe City, private  practice, chief deputy DA; Pres. CWBA; Bd of Directors CBA; Bd of Trustees DBG",
+    "Campaign website": "http://www.mccannfordenverda.com",
+    "Facebook": "",
+    "Twitter": "http://BethDAlady.com",
+    "Why are you seeking public office?": "I have been serving as Denver's DA for the last 3 1/2 years. I have been able to some important work including starting a restorative justice program and a prefile adult diversion program. We can do a much better job of providing alternatives to jail in appropriate cases such as involving mental health and drug misuse. I also started a firearms relinquishment program to make sure people convicted of domestic violence do not have access to firearms. We have seen an alarming rise in juvenile violence; we need to figure out how to address this. I am also committed to addressing racial disparities in the criminal justice system and have contracted with a professor to examine our data to determine if there is unintentional racial bias. We are having internal discussions about race and equity.",
+    "What will your top three priorities be if elected?": "1) I would like to start a Conviction Review Unit to provide a way to review cases in which people claim innocence and there is some evidence to support that position. I would also like a mechanism to review and revisit particularly harsh sentences. \n2) Work with the legislature to take a look at mandatory minimum sentences, habitual criminal statutes and the felony murder statute. \n3) Find funding to expand our Restorative Justice and adult diversion program. Also secure funding to start our proposed Handgun Intervention Program to focus on young people arrested for handgun possession and provide services to help them make better choices.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "SB 20-217 made a change that I have been advocating for which was to remove the justification for officers to shoot a \"fleeing felon.\" This allowed an officer to shoot someone in the back if he/she had reasonable grounds to believe that the person was involved in a felony with a deadly weapon. \nFor me, that was the most bothersome provision in the law with respect to officer shootings. \nSB 217 I supported the banning use of chokeholds . \nI do not support changing the self defense laws because officers have the right to defend themselves or others from use of force just as do all in Colo.\nI don't think it is the law regarding charging officers with crimes that is the issue. More training and a change in culture are critical. Funding mental health and drug treatment is needed.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "When I started, I set up a unit that appears at the first appearance of someone in court which is when bond gets set. My attorney meets with the Public Defender to discuss release of prisoners. They agree on many cases. We began agreeing to more PR and low bonds. Denver has an excellent pretrial program that does assessments immediately after arrest. These assessments assist in considering bond. I support making sure we are only holding those in jail who are dangerous or who are at high risk not to appear in court. \nDuring the COVID situation,we have worked with the courts, the PDs, and the sheriffs' department to drastically reduce the jail population. It decreased over 40%. Unfortunately, it has started to creep up recently due to our increase in violent crime in Denver.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "I contracted with a professor at UCD shortly after I started to come into the office and analyze cases to see if there is implicit bias. We had not had very good data collection which we have been working to improve. She brought in interns to go through all of the more serious cases during a one year period. We expect a report this fall. I will make the report available to the public. \nI have also applied for grant assistance from the Vera Institute which is interested in helping DA offices analyze data. \nI bought everyone in the office The New Jim Crow; we had facilitated discussions about it. We have had two town halls this summer to discuss race/equity in the office and system. We set up small groups for everyone in the office to discuss racial inequality and we have 2 affinity groups"
+  },
+  {
+    "District": 2,
+    "Party": "Libertarian Party",
+    "Name": "William F Robinson III",
+    "Age": "Unanswered",
+    "Place of residence": "Denver",
+    "Profession": "Attorney & Unitarian Universalist Minister",
+    "Education": "Denver Public Schools, Princeton University, Iliff School of Theology & DU College of Law",
+    "Family": "Married, two sons and a daughter, 7 grandchildren",
+    "Experience": "Over four decades practicing criminal defense, domestic and civil law in Colorado's municipal, state, and federal courts.",
+    "Campaign website": "",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "Taxpayers in ONE PARTY Denver deserve a Libertarian DA watchdog!",
+    "What will your top three priorities be if elected?": "First, the DA's office investigating construction cost overruns at DIA, National Western Stockyards, Convention & Performing Arts Centers. Second, keeping grand juries busy hearing evidence obtained of individual and corporation wrongdoings there. Third, conducting trials against those thus charged. At the sentencing of those convicted, seeking not only jail time but also large sums for restorative justice.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "No. Peace officers make split second decisions under stressful conditions. Their training is constantly enhanced. If the doctrine of sovereign immunity is further undermined, no one will want to serve. The “war on cops” should cease. However, I advocate prohibiting government employees from unionizing. Police unions, like teacher unions, make it difficult to weed out incompetents.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "None. We are presently seeing too many “catch and release cases” where those charged return to the streets and commit additional crimes. Nor do they return to court on the dates fixed for their next appearances. Those unable to post cash, property or surety bonds are given the earliest trial dates, have public defenders and, if convicted, receive credit for “time served” at sentencing.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "According to the Fully Informed Jury Association’s website, 95% of criminal cases are resolved by plea bargaining. If a defendant refuses to plea bargain, 64% of those convicted receive extra punishment for doing so. As DA, I will insist that my deputies cease all “over charging” to force guilty pleas to lesser charges. Each defendant’s criminal record impairs being hired and an immigrant to deportation."
+  },
+  {
+    "District": 17,
+    "Party": "Democratic Party",
+    "Name": "Brian Mason",
+    "Age": 44,
+    "Place of residence": "Westminster",
+    "Profession": "Attorney",
+    "Education": "Juris Doctor, University of Colorado Law School; Bachelor’s Degree, Kenyon College; Graduate, Heritage High School",
+    "Family": "My wife, Fernanda, and I have three beautiful children.",
+    "Experience": "I have worked at the Adams & Broomfield District Attorney’s Office for nearly 14 years and currently supervise 30 attorneys there.",
+    "Campaign website": "https://www.brianmason.us/",
+    "Facebook": "https://www.facebook.com/brianmason.us",
+    "Twitter": "https://twitter.com/brianmasonco",
+    "Why are you seeking public office?": "I am running for District Attorney to protect the communities of Adams and Broomfield counties and to make our criminal justice system better.  I have devoted nearly 20 years to public service, including nearly 14 years as a prosecutor in the District Attorney’s Office.  I currently serve as a Chief Trial Deputy and supervise 30 attorneys there.\n\nThe single most important character trait of a District Attorney is integrity.  My philosophy is this: “Do the right thing.  At all times.  In every case.”  And that is precisely what I pledge to do.",
+    "What will your top three priorities be if elected?": "My number one priority is community safety.  I will vigorously prosecute those who commit violent crimes, sexual assault, hate crimes and those who abuse children and the elderly.  \n\nI will also fight to make the criminal justice system better.  I will work hard to address the inequities in our system and to root out racism where it exists.  I will invest in diversion programs and specialty courts and will create a civilian review board to increase transparency.  \n\nFinally, I will emphasize education and awareness to prevent crime and will demand the highest standards of ethics from my attorneys and staff.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "The State Legislature is responsible for making law in this regard and I would certainly work with them on the issue if they choose to take it up.  As District Attorney, I am responsible for investigating incidents where officers use force and making decisions about whether to file charges.  I will vigorously investigate these incidents, will insist that the investigation be done by an independent, multi-agency team, and will be transparent with our findings and any charging decisions.   When a police officer breaks the law, I will hold that officer accountable.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "Too often our jails hold people who cannot post bail simply because they are poor to pay.   The purpose of bail or bond is not to hold poor people in jail.  The purpose of bail is to protect the community from those who pose a serious risk of harm and to ensure that those who are charged with a crime come back to court.  I support responsible bail reform that maintains these two objectives and stops the practice of keeping people in jail simply because they are poor.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "Racism and discrimination have plagued our country since its founding and it is perpetuated in our criminal justice system.  Addressing racial disparities is one of my top priorities.  \n \nAs District Attorney, I will:\n\n•\tWork towards ending the school to prison pipeline\n•\tInvest in diversion programs and specialty courts as alternatives to incarceration\n•\tMandate implicit bias training\n•\tEvaluate our charging decisions to eliminate any racial discrimination and collect data to help us evaluate where we are falling short\n•\tCreate a civilian review board to increase transparency \n•\tInvest in schools, senior centers and other community partners to prevent crime and reduce recidivism"
+  },
+  {
+    "District": 17,
+    "Party": "Republican Party",
+    "Name": "Tim McCormack",
+    "Age": 55,
+    "Place of residence": "Brighton",
+    "Profession": "Senior Deputy District Attorney",
+    "Education": "Graduated Grand Junction HS; earned degree's from Colorado State University and Creighton School of Law",
+    "Family": "Married with 3 children; raised family in the jurisdiction for past 21 years",
+    "Experience": "28 years as Deputy District Attorney and Chief Trial Deputy. Trained, supervised and mentored over 100 attorneys; assigned to community boards and Critical Incident Team investigations.",
+    "Campaign website": "https://mccormackforda.com",
+    "Facebook": "https://www.facebook.com/McCORMACKforDA",
+    "Twitter": "https://www.twitter.com/mccormackforda",
+    "Why are you seeking public office?": "I am running for office to return integrity, honesty and transparency back to the Office of District Attorney for the 17th Judicial District. As the most experienced prosecutor, attorney and criminal justice candidate in this race, I will use my track record of 28 years of proven experience to provide servant leadership, ethics and unbiased decision-making to the Office of District Attorney and for the communities in which I am privileged to serve. Public safety is my top priority and it is essential given recent social injustice issues to rebuild trust in this office and in the criminal justice system.",
+    "What will your top three priorities be if elected?": "-Restoring public safety as the top priority of the office. Recent studies and statistics show that of the most dangerous cities in Colorado, cities in Adams County rank the highest. \n-Repairing and bridging relationships through training and education between law enforcement, this office and the communities they serve by implementing collaborative discussions on how best to improve our community relations and the criminal justice system.\n-Actively recruiting attorneys and staff that better reflect the communities we serve while training experienced staff that possesses institutional knowledge to bring about positive change without compromising public safety and your tax dollars.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "With the recent passage of SB217, Colorado’s Law Enforcement Integrity Act, Colorado Legislators have already revised the dictates on how and when police officers can be charged with crimes for use of force. The Law Enforcement Integrity Act produced a far-reaching and comprehensive police accountability and reform law which received bi-partisan support as well as support from the Colorado District Attorney’s Council. This law affects almost every aspect of policing in Colorado in an effort for greater transparency. Of note, even before this bill was passed, law enforcement could be charged for crimes just like any other citizen.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "I support informed discussions regarding the current system related to bail but do not support entirely eliminating cash bail in certain circumstances. The purpose of bail is to prioritize community safety and ensuring that an offender will appear for future court hearings for which they must be present. Factors to consider include the seriousness of the case, an offender’s criminal history and the presence of past failures to appear for court proceedings. I would advocate for a balanced approach that provides more discretion to courts with informed arguments from all parties that maintain public safety and lessen community safety risks.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "There is no place for racial disparity in our country, especially in the criminal justice system. As a prosecutor of 28 years, I would mandate that any decisions made be based on the seriousness of the crime, facts of the case, amount of evidence available to prove guilt and the prior criminal record of the offender regardless of race or gender. As your next District Attorney, education and resolute focus on training attorneys, staff and law enforcement to identify racial disparity and once identified, exclude it from consideration in filing decisions, charges, plea dispositions and sentencing recommendations to the courts."
+  },
+  {
+    "District": 18,
+    "Party": "Republican Party",
+    "Name": "John Kellner",
+    "Age": 39,
+    "Place of residence": "Greenwood Village",
+    "Profession": "Prosecutor",
+    "Education": "J.D., University of Colorado School of Law",
+    "Family": "Proud husband and father of two awesome kids, 7 & 8 years old",
+    "Experience": "Former Marine Corps Judge Advocate and federal prosecutor. Currently Chief Deputy District Attorney of the 18th Judicial District, head of the Cold Case Unit. Prosecutor of the Year for Colorado.",
+    "Campaign website": "https://www.johnkellner.com/",
+    "Facebook": "https://www.facebook.com/JohnKellnerCO/",
+    "Twitter": "https://twitter.com/JohnKellnerCO",
+    "Why are you seeking public office?": "I’m running for DA to be an advocate for community safety. I’ve been serving the people of the 18th for nearly eight years since George Brauchler took office, and I’m proud to have his support and endorsement. As a former Marine Corps judge advocate and current Chief Deputy DA, I am the only candidate in this race who has successfully prosecuted felonies and violent crime trials. In a jurisdiction as large as the 18th, spanning everything from urban, to suburban and rural communities, I have the law enforcement relationships and experience to solve crime, reduce recidivism and hold offenders accountable. I'm dedicated to upholding the rule of law, supporting victims of crime, and seeking equal justice for all.",
+    "What will your top three priorities be if elected?": "Violent crime has exploded during COVID19, with shootings occuring on a daily basis. As a Chief Deputy DA, I have experience dismantling gangs and drug trafficking organizations and getting illegal guns off the street. Everyone deserves to feel safe and reducing violent crime is my top priority. I was also a founding member of the Veterans Treatment Court, a program that has dramatically reduced recidivism (less than 5% compared with an average of 50% in Colorado), and I want to expand this model to those suffering from addiction and mental health issues. Transparency is another priority. My office will engage the community with local prosecution units that connect with the diverse communities to better understand concerns, answer questions, and above all, be accountable.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "Police officers are, and should be, accountable under the law just like any other citizen. In the 18th Judicial District we ensure no police agency investigates itself when officers use deadly force. We publish detailed reports of our investigations and charging decisions in all of these cases on our website for public scrutiny. But we can do more, and I support expanding the law to require these outside investigations for situations involving serious injury, not just death. I do not support removing charging decisions to the state level, such as the Attorney General, because I believe in accountability. And it is the local elected DA who is the most accountable official to the local community.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "One of the most frustrating situations for a prosecutor is addressing bond on a case where the defendant is on bond in 4 other pending cases around the metro area. That is even more frustrating for victims. Public safety is my top priority, but that doesn’t mean keeping everyone locked away. Bond decisions need to be based on the individual, their criminal history, record of appearing in court, and the risk to their victims, witnesses, and the community. I do not believe in perpetually releasing individuals who continue to commit new crimes – particularly violent crimes - while  pending trial.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "We need to collect data, study our own charging decisions and sentencing outcomes, and publically release this information. But none of that will make a difference if we don’t address what happens before a defendant ever comes to the DA’s office. Law enforcement agencies initiate cases with either a probable cause arrest or by investigating a case and submitting it to our office. We need to work closely with law enforcement to ensure that implicit biases aren’t affecting those initial investigations. As the only candidate endorsed by law enforcement across the entire judicial district, I have the trust to have those difficult conversations and achieve results."
+  },
+  {
+    "District": 18,
+    "Party": "Democratic Party",
+    "Name": "Amy Padden",
+    "Age": 51,
+    "Place of residence": "Aurora",
+    "Profession": "Attorney",
+    "Education": "JD, Georgetown; BS, College of William & Mary",
+    "Family": "Married with two daughters from husband's first marriage",
+    "Experience": "I have worked as a prosecutor at all three levels of government:  US Attorney's Office, Colorado Attorney General's Office, two DA Offices. Prior to public service, I was a partner at Wheeler Trigg.",
+    "Campaign website": "https://www.amypadden.com/",
+    "Facebook": "https://www.facebook.com/amypaddenCO",
+    "Twitter": "https://twitter.com/amypaddenco",
+    "Why are you seeking public office?": "I am running for District Attorney of the 18th JD because, as the largest Judicial District, this office is critically important to our communities, including Aurora where I live. This office has made life-altering decisions for members of our most vulnerable populations, namely our black and brown members of the community. It is time for new leadership in the office that is sensitive to the critical issues affecting the criminal justice system in our District.  \nToo often, prosecutors measure success by counting the number of their convictions. To the contrary, I think that prosecutors need to re-focus on providing opportunities for rehabilitation of non-violent offenders, allowing them to repair the harm caused to communities and rebuild their lives in a way that reduces re-offending.",
+    "What will your top three priorities be if elected?": "1. Keeping our communities safe. In order to truly make our communities safer, we must do a better job of preventing crime and reducing recidivism, not just punishing crime after it occurs. \n2. Finding alternatives to incarceration for non-violent offenders, such as a robust diversion program. When I worked at another DA's office, I built an adult diversion program from the ground up for non-violent offenders. Rather than putting them through a trial, we connected them with resources, had them take steps to repair the harm to the community, and gave them tools to put their lives back on track. \n3. Creating a Community Outreach office.  We have a lot of work to do to rebuild trust between law enforcement and the community, and we must be present in the community to do that.",
+    "Should Colorado legislators rethink the laws that dictate when and how police officers can be charged with crimes for uses of force? Why or why not?": "Yes. I believe the work has already started with the passage of SB20-217, which sets forth important changes on these issues. We need to rethink antiquated policing and prosecution policies. We also need to be able to assure the public that law enforcement officers will be held to the same standards as civilians. We have lots of great, hardworking law enforcement officers in Colorado. But when we allow the \"bad apples\" to operate with impunity, as the saying goes, \"a few bad apples spoil the bunch.\" We owe it to our good law enforcement officers, and to our communities at large, to hold the bad apples accountable.",
+    "What measures would you take, if any, to reduce the number of people held in pretrial incarceration?": "We need to rethink pretrial incarceration. In my opinion, we should not be holding individuals on cash bail for minor, non-violent offenses. For those offenses, it should be the rare circumstance where an individual cannot be released on a personal recognizance bond. Those bonds carry consequences for failures to appear, and in most cases will accomplish the goal of ensuring appearance. In too many circumstances, cash bail (even at comparatively low amounts) disproportionately affects poorer individuals, who are at the greatest risk of losing their jobs and homes if held pretrial, creating a circle of poverty.",
+    "Decades of research show racial disparities in charging and sentencing across the country. What will you do to determine whether such disparities are happening in your district and what are some potential solutions to making sure such disparities don’t happen?": "I am committed to hiring an outside consultant to review our charging and sentencing data, such as what is taking place in Denver currently. We need to look at the data so that we know where the issues are and can address them.  Some potential solutions would include blind file reviews (where the reviewer does not know the race or ethnicity of the Defendant). It's also important to work with the Legislature to ensure that there are not biases inherent in our sentencing laws -- for example, when the federal sentencing guidelines were mandatory in the 1990s and required much stiffer sentences for crack vs. cocaine offenses."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

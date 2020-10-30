@@ -1,0 +1,42 @@
+var JSONData = { //Pseudo JSON
+        "menu": [{
+                "menuGroup": {
+                    "parentMenuName": "MAIN",
+                    "description": "myDesc",
+                    "displayOrder": 1,
+                    "menuCategory": "myCat",
+                },
+                "menuItems": [{
+                    "subMenuName": "Payments",
+                    "shortCode": "PAY",
+                    "key": "primaryKey"
+                }, ]
+            },
+            {
+                "menuGroup": {
+                    "parentMenuName": "MAIN1",
+                    "description": "myDesc1",
+                    "displayOrder": 2,
+                    "menuCategory": "myCat1",
+                },
+                "menuItems": [{
+                    "subMenuName": "Payments1",
+                    "shortCode": "PAY1",
+                    "key": "primaryKey1"
+                }, ]
+            },
+            {
+                "menuGroup": {
+                    "parentMenuName": "MAIN2",
+                    "description": "myDesc2",
+                    "displayOrder": 3,
+                    "menuCategory": "myCat2",
+                },
+                "menuItems": [{
+                    "subMenuName": "Payments2",
+                    "shortCode": "PAY2",
+                    "key": "primaryKey2"
+                }, ]
+            }
+        ]
+    }

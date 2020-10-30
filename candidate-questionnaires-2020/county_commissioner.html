@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>County Commissioner Handlebars Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">{{this.County}} County District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.</strong>
+            {{this.[Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.]}}
+            &nbsp;
+            <strong>Do you support efforts to cap growth at the county or regional level? Why or why not?</strong>
+            {{this.[Do you support efforts to cap growth at the county or regional level? Why or why not?]}}
+            &nbsp;
+            <strong>Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?</strong>
+            {{this.[Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "Order": 1,
+    "County": "Adams",
+    "District": 1,
+    "Party": "Democratic Party",
+    "Name": "Eva Henry",
+    "": "Henry",
+    "Age": "",
+    "Place of residence": "Thornton",
+    "Profession": "Adams County Commissioner",
+    "Education": "Unanswered",
+    "Family": "Life partner and best friend Steve, Adult children Danielle and Maurice",
+    "Experience": "Seventeen years in finance, Community Organizer, Thornton City Council,  Currently, Adams County Commissioner",
+    "Campaign website": "https://www.evahenry.com/",
+    "Facebook": "https://www.facebook.com/EvaHenryCO",
+    "Twitter": "https://twitter.com/EvaHenryAdco",
+    "Why are you seeking public office?": "To be the voice for the hardworking people of Adams County.",
+    "What will your top three priorities be if elected?": "Workforce Housing\nClean Environment\nEconomy",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "The health of the community should not be left up to politicians. Decisions about our health should be made by professionals that have studied public health and have PHD's, not by the average politician who is only worried about what is popular.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "Reasonable and well planned growth is good for the economy and provides for affordable housing.  Those decisions should be left to local governments that understand the needs of their communities to make the decision that is best for them.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "Most of the procedures in SB218 had already been in practice by our Sheriff's office. The Bill enhances law enforcement integrity.  I support body cameras but I am concerned about the unfunded mandate of $3 million dollars that it will cost to purchase the cameras and the storage of the data."
+  },
+  {
+    "Order": 2,
+    "County": "Adams",
+    "District": 2,
+    "Party": "Democratic Party",
+    "Name": "Charles \"Chaz\" Tedesco",
+    "": "Tedesco",
+    "Age": 54,
+    "Place of residence": "Commerce City",
+    "Profession": "Retired Master Mechanic",
+    "Education": "High SchoolTrade and leadership schools",
+    "Family": "Bernadette/wife, Amber/daughter",
+    "Experience": "6 years USN (Navy)\n26 years Master Mechanic\n8 years President Local 8031 Steelworkers\n8 years Adams County Commissioner",
+    "Campaign website": "https://www.ChazforAdams.com",
+    "Facebook": "https://www.facebook.com/ChazforAdamsCounty/",
+    "Twitter": "https://twitter.com/commishTedesco/",
+    "Why are you seeking public office?": "I am currently seeking re election on the 2020 ballot. My service as Commissioner has been productive as changes have been made in all areas of governance. The community has seen responsible growth as well as a dedication to open space and farmland. Rail has been prioritized and the results have been outstanding with many rail lines opening in Adams County in 2016-2020 the most recent being the N-line. The older neighborhoods have seen many improvements as well as future improvements being prioritized.\nAs a proud servant to the community I am excited to continue my efforts as Adams County Commissioner.",
+    "What will your top three priorities be if elected?": "Homelessness, policies are being addressed in order to deal with the growing trend of community housing and Multi-generational housing. This includes the impact on our schools, fire districts, water district etc.…  \nHousing, this is one of the areas of the greatest need right now from single-family homes, condos, apartments and senior housing. Affordable, attainable market ready units are few and far between. The need for TOD Transit Oriented Development is on the rise but not at the rate needed. The availability of 30-60% AMI homes is also something we are working on.\nImproved services to our Foster families and children, especially our aging out of foster care kids are of the highest priority for me.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "The elected officials are tasked with appointing board members to the board of health. We are tasked to find the most qualified people to make health decisions. Once we choose those people we entrust them with the ability to make those decisions. Most elected are not professionals in this arena and I personally would trust a Medical Professional with my health more than an elected.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I do not support a growth cap. The devastation it would cause to our economy and economic growth as well as the escalation of gentrification is only two of many reasons I do not support. Our population will continue to grow and our communities need to grow accordingly. I have always supported and encouraged responsible policies that encourage responsible growth.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "SB 217 is another tool to be used towards transparency and accountability. The manner in which it is used will determine the effect it will have.  I believe Adams County will learn a great deal as we implement SB 217."
+  },
+  {
+    "Order": 3,
+    "County": "Adams",
+    "District": 5,
+    "Party": "Democratic Party",
+    "Name": "Lynn Baca",
+    "": "Baca",
+    "Age": 50,
+    "Place of residence": "Brighton",
+    "Profession": "As a Procurement Agent, I oversee bids, solicitations and contracting",
+    "Education": "Bachelor of Science Degree - Business Administration",
+    "Family": "As a second-generation native, I am a fortunate daughter, a supportive sister and a doting aunt.",
+    "Experience": "Over 20 years in government contracts and purchasing; an active community volunteer; former 2-term Brighton City Council Member; served on local & regional transportation boards.",
+    "Campaign website": "http://www.lynnbaca.co",
+    "Facebook": "https://www.facebook.com/BacaForAdamsCounty",
+    "Twitter": "",
+    "Why are you seeking public office?": "As an Adams County native, I care deeply about the residents and their quality of life.  I want to continue to shape the future of Adams County.  Our residents are deserving to reach their fullest potential, to live in safe neighborhoods, to earn a living, and to have a great quality of life.  Opportunities abound in Adams County, and I want to help our residents act on them.",
+    "What will your top three priorities be if elected?": "My top priority is to continue moving the county forward by focusing on business attraction and retention and advocating for infrastructure & transportation (which include potential new interchanges on E470 and completion of the N Line).  My second priority is to establish a budget that is reflective of our values and priorities, including human services and community safety. My third priority is to continue to fight for parks, open space, trails, and outdoor recreation that we all enjoy.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "The decisions about public health are the responsibility of the professionals and experts in the public health department.  The recommendations to inform, educate and implement health orders (such as requiring masks) is the responsibility of both parties.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I do not support capping growth at the regional level, each county must have the autonomy to make the best decisions for their county and constituents.  The same goes with capping growth at the county-level, I believe city officials should be able to make the best decisions for their cities.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "The Adams County Sheriff's Office does an outstanding job keeping or community safe.  SB 217 does not change the level of service or care currently being provided.   I've been actively talking to law enforcement, and there have been immediate impacts on recruiting new officers.  I am committed to working with our Sheriff and to be available to him to discuss further."
+  },
+  {
+    "Order": 4,
+    "County": "Adams",
+    "District": 5,
+    "Party": "Republican Party",
+    "Name": "Phil Covarrubias",
+    "": "Covarrubias",
+    "Age": 52,
+    "Place of residence": "Brighton",
+    "Profession": "Small Business Owner",
+    "Education": "USMC",
+    "Family": "Wife (Tonya) and two boys (Erik - 15 and Nick - 18 Delayed Entry Program USMC",
+    "Experience": "Former State House Representative for District 56, Brighton Planning Commissioner, Local IBEW #111 Union Steward, Small business owner",
+    "Campaign website": "https://www.philforadco.com/",
+    "Facebook": "https://www.facebook.com/philforadco",
+    "Twitter": "",
+    "Why are you seeking public office?": "I running for Adams County Commissioner because I believe it is important to have diversified voices representing the people in my county and to provide some balance to the current Commission. My background in the utilities construction industry, on the Brighton Planning Commission and as a State representative have provided the ideal skills for me to serve as County Commissioner. My time at the State Capitol shows that I listen to my constituents, am open minded and have served with integrity.",
+    "What will your top three priorities be if elected?": "First, we must ensure safe and welcoming communities. I would support the county providing law enforcement funds for equipment like body cameras, training and other mandates to provide safe neighborhoods. The recently passed moratorium on the oil and gas industry in Adams County is an opportunity to address many challenges the county faces. The moratorium does not make sense in the current and future economic climate. With so many unemployed, a desire to restart the economy, the clean-burning fuel of natural gas, and need for public revenues to provide community services and infrastructure, the oil and gas industry should not be banished from our county. I would also promote smart and responsible growth and affordable housing across the county.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "I believe that there should be a conversation between public health officials and elected policymakers to make decisions about public health. It is the elected officials' responsibility to listen to public health officials and ask pertinent questions. As the elected policymaker is the official representing the public, it is also their duty to take into account all of factors and potential outcomes to make the final decision that is best for the county.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I do not percentage support caps on residential growth in Adams County. I believe smart growth is important to ensure community and government services are not overwhelmed by new residential growth.  Adams County is diversely populated and its communities range from close to urban (Aurora) to very rural (Deer Trail). I believe arbitrary caps remove the important job from county commissioners of making smart growth decisions for its various communities, which have vastly different needs. I also believe such caps drive out affordable housing from communities, as they create an artificial shortage in housing.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I do not know whether or not SB 217 will improve policing and citizen safety because it is an unfunded State mandate. Whether it improves policing and citizen safety is largely dependent on whether the county and municipalities can fully fund the mandates. I support funding the requirements of the law in Adams County, but am concerned that most State funded law enforcement has been exempted from the law. I am concerned the law will not be implemented evenly across the county, which could create unforeseen issues and problems."
+  },
+  {
+    "Order": 5,
+    "County": "Arapahoe",
+    "District": 1,
+    "Party": "Republican Party",
+    "Name": "Kathleen Conti",
+    "": "Conti",
+    "Age": 57,
+    "Place of residence": "Littleton",
+    "Profession": "County Commissioner",
+    "Education": "CO found. for Water Ed. Water Effluency School, Armbrust Real Estate 2015, LPR School of Persuasion 2012, LPR 2010",
+    "Family": "Married to My Husband Frank Conti for 34 years, mother of 2 adult boys",
+    "Experience": "Continental Airlines 1984 - 1991\nSmall business owner 1991 - 2010\nCO State Representative 2011 - 2016\nArapahoe County Commissioner 2016 - current",
+    "Campaign website": "https://www.kconti4arapco.com",
+    "Facebook": "https://www.facbook.com/kathleencontiforarapahoecounty/",
+    "Twitter": "https://twitter.com/kcontiforco",
+    "Why are you seeking public office?": "I possess a unique skill set that best matches the counties current need for more revenue.   One of the easiest ways to improve our current financial situation is to stop the erosion of our tax dollars from Unfunded new state programs we are forced to implement. As a former State Representative, I have served with and have rapport with a majority of the state elected officials. This gives me the relationships and knowledge I need to go into committee rooms and testify with a high likelihood of success  preventing the state from requiring a new program that we can’t afford.",
+    "What will your top three priorities be if elected?": "Maintain or increase our current level of services to the citizens by protecting our county tax revenues from the state eroding it through unfunded mandates. More revenue will allow us to prioritize, Transportation funding, Participation in homelessness projects, maintain a high level of Public Safety, Continuation of our “for the convenience of the citizens” services, Drivers Lic., passport svc..",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "We live in a democratic Republic, people have an expectation that Policies which directly affect their lives will be made by those they democratically elect to do so. As elected officials , we should have the pulse of the people, and therefore the best ability to balance the data from our Public Health officials with the economic concerns of the people. Because as we are seeing, Public health, Economic Health and mental health are all intertwined. It therefore should be a collaborative decision between the Public Health officials, and elected officials.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "No, I do not.  Colorado is a Headwater state, one of only 2 in the nation. In our status as such, we are required to send water to 18 other states, + the nation of Mexico. The ability to Secure water for the growth will act as a natural growth limit.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "90% of what was required in SB-217 had already been implemented in Arapahoe County for many years. Our Sheriffs office has achieved an advance certification with The Commission on Accreditation for Law Enforcement Agencies. Only 5% of Law enforcement agencies in the nation achieve this certification. The bill also resulted in a dramatic change in our justice system for our Deputies. For the rest of us it is still presumed Innocent until proven guilty, now for our Deputies, it's presumed guilty until a body camera proves them innocent. This shift to presumed guilt, may cause a delay in life and death decisions that need to be made in split seconds. This will cause them to hesitate which could endanger their life, their partners, and the general public."
+  },
+  {
+    "Order": 6,
+    "County": "Arapahoe",
+    "District": 1,
+    "Party": "Libertarian Party",
+    "Name": "Joshua Lallement",
+    "": "Lallement",
+    "Age": 33,
+    "Place of residence": "Littleton",
+    "Profession": "Uber-eats Driver",
+    "Education": "High school and Toastmasters",
+    "Family": "",
+    "Experience": "",
+    "Campaign website": "",
+    "Facebook": "https://www.facebook.com/joshua.lallement",
+    "Twitter": "https://www.twitter.com/@JoshuaLallement",
+    "Why are you seeking public office?": "To give people a different choice to the republicans and democrats. Also to advance the ethics of freedom, that as a beautiful free independent human being you own yourself and the product of your labor. That it is wrong and counterproductive to use force or coercion against another person or their property even when done at the hands of government.",
+    "What will your top three priorities be if elected?": "1. Cancel the contract with Tri-County health department: an unelected bureaucracy shouldn’t use force against individuals or businesses.\n2. Scrutinize the budget of the Sheriffs department: Anything that is a violation of peaceful people’s life or property should not be funded by taxes or fees.\n3. Reduce property taxes and any other county fees greatly: the people of Arapahoe County need to keep the hard earned product of their labor.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Health decisions should be made by individuals and businesses. People and businesses should be free to assess the risks of life and adjust according to their own reason and choices.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I support zoning all together allowing the free market to direct growth issues.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "It’s a start. We also need to eliminate and reduce laws and regulations that require force and coercion against the ethics of freedom."
+  },
+  {
+    "Order": 7,
+    "County": "Arapahoe",
+    "District": 1,
+    "Party": "Democratic Party",
+    "Name": "Carrie Warren-Gully",
+    "": "Warren-Gully",
+    "Age": 55,
+    "Place of residence": "Centennial",
+    "Profession": "Business Owner - Audiobooks",
+    "Education": "BA Double Major Biology and Political Science, Masters in Public Administration",
+    "Family": "My husband and I have been married 30 years with 3 sons 22-26 years old.",
+    "Experience": "I'm a mom who runs a small businesses and advocated for public education for over 15 years. I currently serve on the Littleton School Board.",
+    "Campaign website": "https://www.carrie4commissioner.com/",
+    "Facebook": "https://www.facebook.com/carrie4commissioner",
+    "Twitter": "",
+    "Why are you seeking public office?": "I met my husband at Englewood High School. We raised our three boys here. I'm the best choice for Arapahoe County Commissioner because I understand our values -- and how to collaborate and solve problems. My opponent's record is very divisive. Her voting record of pushing sexual orientation conversion therapy on our LGBTQ neighbors, supporting big box stores ahead of our local small businesses, voting for a constitutional convention to repeal the Affordable Care Act, and not supporting our public health and economic recovery by wearing masks is not who we are in Arapahoe County. It's time for change.",
+    "What will your top three priorities be if elected?": "I value leaving our community better than we found it. My focus will be to restore community voice  -- having a voice at the table shouldn’t depend on the neighborhood you live in! My top issues: \n \n1.) As a small business owner, I will champion our local economy and businesses ahead of big box stores. \n2.) Bringing long-term smart growth solutions to our county  -- while respecting the character of our neighborhoods.\n3.) Continue funding for our vulnerable populations and address the physical and mental health needs of our community.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "My opponent and I differ greatly on the use of wearing masks in our local businesses. I support masks. Public health decisions should be made by public health experts who have spent years in school studying best practices and their careers following research and the science of new diseases. The trained experts should make the decisions and the elected official should work with them to implement the policies and help educate our community on the importance of working together.  Wash your hands wear a mask.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "Arapahoe County is one of the fastest growing Counties in our state and will eventually become the largest. We can not put our head in the sand and pretend that growth isn’t happening. Stopping the construction of new homes would drive up housing costs on older adults, our young people, and middle class families. We need long-term thinking about the big challenges facing our growth -- not measures that would stop growth all together to the detriment of our housing needs and small businesses owners. We can grow Arapahoe County, while also protecting the character of our neighborhoods.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I support the use of body cameras and accountability measures for our police officers, which is provided in SB 217. I strongly support the work of good law enforcement officers. This bill removes the shield of immunity for prosecution from law enforcement officers who have acted unlawfully and requires the reporting and collection of data on people who are stopped and searched. This bill is a good step to protect the rights of Black and Brown minorities who are stopped, searched, and killed at a much higher rate than their white neighbors."
+  },
+  {
+    "Order": 8,
+    "County": "Arapahoe",
+    "District": 3,
+    "Party": "Republican Party",
+    "Name": "Jeff Baker",
+    "": "Baker",
+    "Age": 63,
+    "Place of residence": "Centennial, CO",
+    "Profession": "Retired military/law enforcement & Facilities Management",
+    "Education": "BS in Government/Politics; Masters of Public Administration",
+    "Family": "Wife of 40 Years, Yangson Baker.  Two adult Children",
+    "Experience": "Completing first 4-yr term in office as Commissioner. Longtime employee of over 21 years with Arapahoe County. Former CSI Supervisor with the Aurora Police Department.",
+    "Campaign website": "https://committeetoelectjeffbaker.com/",
+    "Facebook": "https://www.facebook.com/Jbakerpmp/",
+    "Twitter": "http://twitter@electJeffBaker",
+    "Why are you seeking public office?": "As I finish my first term in office, there is still so much for me to do on behalf of my constituents. Development is occurring in my district at a rapid pace. More and more people are moving into Colorado and to Arapahoe County. This has led to the need for additional services and wear and tear on our roads.",
+    "What will your top three priorities be if elected?": "Transportation - Road and bridge maintenance is badly needed. Reduce congestion.\nSmart and responsible development - infrastructure and water resources will not support the number of people moving in unless we plan for that now.\nPublic safety - The most vulnerable members of our communities, the very old and very young, need to be protected.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "I believe that whoever is making the decision needs to get public input and then be accountable to the public. Usually that is elected officials who can hold public meetings, solicit citizen comments before making their decision and be voted for/against in the next election.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "Capping the growth of communities is an example of government over-reach. The real estate and business market will control growth appropriately. If a developer builds houses that are not appropriately priced, no one will buy them and the developer will go out of business. If a business-person opens a business that doesn't successfully attract customers, they will fail.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "Yes. Arapahoe County has instituted many of the measures included in SB 217; some as much as ten years ago! Many of these measures needed to be implemented however there will be a financial impact to smaller departments and offices. I am especially appreciative of the requirement  making law enforcement officers who witness unethical, immoral, criminal behavior - any abuse of \"police powers\" on the part of their colleagues - required to report what they witnessed."
+  },
+  {
+    "Order": 9,
+    "County": "Arapahoe",
+    "District": 3,
+    "Party": "Democratic Party",
+    "Name": "Idris Keith",
+    "": "Keith",
+    "Age": "",
+    "Place of residence": "Aurora",
+    "Profession": "Business Attorney",
+    "Education": "Bachelor of Arts & Juris Doctor",
+    "Family": "Wife & 2 children",
+    "Experience": "Attorney with government procurement/government contracts experience, small business consulting and development, civil litigation and workers' comp;\nformer probation officer\nand hearings officer",
+    "Campaign website": "https://www.idriskeith.com",
+    "Facebook": "https://www.facebook.com/IdrisKeithforCommissioner/",
+    "Twitter": "",
+    "Why are you seeking public office?": "I grew increasingly concerned about the direction of county leadership when the current commissioner in District 3 voted to raise property taxes $464 million with no clear intent to create jobs or generate sustained revenue.  Residents of Arapahoe County face many challenges including increased housing prices, increased prices for food and increased prices for services.  In light of COVID-19, many residents are facing unemployment or unpaid furlough days.  I did not feel that current leadership in District 3 understood the very real challenges facing our neighbors.  For this reason, I felt compelled to seek public office.",
+    "What will your top three priorities be if elected?": "Economic Recovery \nTraffic and Transportation\nAddress water shortages\n\nDue to COVID, the economy is hemorrhaging jobs and the next Commissioner must be committed to economic recovery and supporting the business community.  I have extensive experience in this field and would prioritize generating revenue and job creation.\n\nI will seek to expand roads, repair bridges, and for the eastern plains - pave dirt roads and perform snow removal; which some taxpayers have gone decades with unpaved roads and/or unplowed roads.  \n\nThe eastern plains experience substantial water shortages and increased growth has compounded the problem.  This has morphed into a crisis which requires action or the areas risk further uncertainty as businesses and homes would be incapable of ready access to clean water.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "The Tenth Amendment to the US Constitution states, \"The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.\"  This amendment provides individual states with \"police powers,\" for maintaining the health, safety and welfare of its citizens.  In this sense, state governments may enact emergency measures to keep people safe.  However, it would be a very good idea to have qualified public health officials consulting those elected politicians with the drafting of emergency policies and legislation such as wearing masks/facial coverings, social distancing and the like.  Ultimately, we need the right people in the proper place at the right time to increase the likelihood of positive outcomes.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "Modified or adjustable caps may be necessary to prevent urban sprawl.  Current leadership did not foresee and failed to pre-plan for increased growth.  As such, developers are building, contractors are adding lanes and commuters are driving at a snail's pace.  Orange barrels abound and traffic has worsened.  Growth keeps our county working and this is a positive for our economy.  However, had there been a commitment to properly develop roads and highways in advance and prepare for the inevitable growth, the transition would not have been as difficult as it has become.  Therefore, corrective steps may be necessary to stem the tide of unmanageable development.  It begins with ensuring that our infrastructure can withstand the growth prior to development by focusing on roads, bridges, etc.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "We must acknowledge that law enforcement officers have an extremely difficult job and we applaud their service.  SB 217 would require body cameras on our peace officers and it details a timeline for the disclosure of such footage to the public in certain cases.  I support the need for body cameras as the same should clearly establish the facts of any dispute.  Where several versions of a particular occurrence exist, the door is left open for lawsuits exposing individual officers to criminal liability and police departments to civil liability which would subject citizens to a depleted treasure as tax dollars are diverted to pay for improprieties.  Financially, it is best for taxpayers to be fully informed and honor those who serve admirably and retrain those who do not uphold the standard."
+  },
+  {
+    "Order": 10,
+    "County": "Arapahoe",
+    "District": 5,
+    "Party": "Democratic Party",
+    "Name": "Bill Holen",
+    "": "Holen",
+    "Age": 74,
+    "Place of residence": "Arapahoe County",
+    "Profession": "County Commissioner",
+    "Education": "University of Minnesota",
+    "Family": "Married to Debi Hunter Holen",
+    "Experience": "Worked for Senator Gary Hart and Congressman Ed Perlmutter for a total of 21 years. I am am Arapahoe County Commissioner for two four-year terms and seeking re-election for a third and final term",
+    "Campaign website": "https://www.electbillholen.com/",
+    "Facebook": "https://www.facebook.com/bill.holen",
+    "Twitter": "",
+    "Why are you seeking public office?": "I want to continue my commitment to helping veterans in the County, continue my work to improve employment opportunities, livable wage employment opportunities for  Arapahoe County residents, bring new high quality jobs to the district and improve the quality of life in the county.",
+    "What will your top three priorities be if elected?": "* Rebuild the economy in Arapahoe County due to the Corona-virus\n* Attract high paying jobs to Arapahoe County\n* Improve the transportation infrastructure in Arapahoe County",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Science matters in these decisions.  Public health officials should determine the best and most effective method to stem the spread of infectious diseases and work closely with elected officials to facilitate the decisions.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "The best and most effective way to control grow in the county is by establishing strong construction building codes and land use regulations that ensure safe and reasonable growth patterns.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I believe SB 217 has some very important guidelines that encourage more humane methods used in arrest procedures.  I believe that judicial reform in all aspects of our justice system needs review.  Certain aspects of the bill unfairly places additional financial burdens on counties to bring them into compliance with the bill.  State legislature continues to place unfunded mandates on local governments."
+  },
+  {
+    "Order": 11,
+    "County": "Douglas",
+    "District": 2,
+    "Party": "Democratic Party",
+    "Name": "Lisa Neal-Graves",
+    "": "Neal-Graves",
+    "Age": 57,
+    "Place of residence": "Parker",
+    "Profession": "Technologist/Attorney",
+    "Education": "BS/MS - Computer Science, ME - Engineering Mgmt, JD",
+    "Family": "Married for 28+ years with a bonus daughter (and son-in-law) as well as a granddaugther.",
+    "Experience": "As a tech exec, lawyer, and community volunteer, I have over 25+ years of Fortune 50/small/midsize corp. & gov experience, managing large teams, $1B budgets, and serving on boards and commissions.",
+    "Campaign website": "https://www.lisanealgraves.com",
+    "Facebook": "https://www.facebook.com/lisanealgraves",
+    "Twitter": "https://twitter.com/lisanealgraves",
+    "Why are you seeking public office?": "My vision is to build a stronger sense of community and manage the unprecedented growth in our county with a sustainable balance between residents, open spaces, and wildlife. As County Commissioner, I will draw on my breadth of experience working with people from diverse backgrounds to develop policy that best serves all people of Douglas County. \nA successful executive, lawyer, and community leader, I am a proven problem-solver focused on strategy, change management, and long-term planning. I am seeking office to put my skills in innovation and collaboration towards solving the complex problems facing our residents and businesses.",
+    "What will your top three priorities be if elected?": "My top three priorities are:\nEconomic recovery and development: I will focus on building an infrastructure to support county businesses, including addressing deficiencies in our communications infrastructure.\nWorking with experts in water and environmental policy to ensure we create and implement a county-wide strategy for a sustainable balance between our residential development, open spaces, and wildlife. \nEstablishing a youth commission to give young people, not often included in policy decisions that affect them, a voice. \nKey factors guiding my decision-making are fiscal responsibility, constituent accountability, and doing what is in the best interests of our county as a whole.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Public health is the science of protecting and improving the health of people and their communities. Achieving public health necessitates the research of illness and injury alongside the rigorous detection, prevention, and mitigation of infectious disease. These are needs that can only be met by scientific experts. Therefore, these decisions should be made in combination with public health experts, economists, a community health commission, as well as elected officials. This would provide needed accountability, rooted in the voices of experts and constituents, required to make a sound decision that represents the needs of residents and businesses.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "Growth caps are about people—not numbers. That’s why I don’t believe in potentially arbitrary blanket caps that are not data-driven or supported by expert analysis about our community. It is important to tie our county growth rate to water and other limited resources. Additionally, development decisions ought to be holistic, with government listening to the residents of affected communities and ensuring that residents’ voices ultimately play an equal role in policy decisions. My vision is for our Board of County Commissioners to use disciplined decision-making to shepherd a sustainable balance between our residential & business growth, open space, and wildlife.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "Sheriff Spurlock has trusted me with his endorsement. And SB 217, in essence, is about building trust between communities and law enforcement. In my conversations with Douglas County law enforcement officers, they have already managed public safety under the provisions in SB 217 for years. While we may not face the same problems as other counties, the programs established in Douglas County by Sheriff Spurlock—fostering officer wellness and community mental health—typify SB 217’s intentions and should be lauded as standard-bearers for public safety. We must build community between law enforcement and residents statewide—Douglas County sets a great example."
+  },
+  {
+    "Order": 12,
+    "County": "Douglas",
+    "District": 2,
+    "Party": "Republican Party",
+    "Name": "George Teal",
+    "": "Teal",
+    "Age": 52,
+    "Place of residence": "Castle Rock",
+    "Profession": "20-year IT Professional and Business Executive",
+    "Education": "BA in History (Minor in Political Science), University of Northern Colorado",
+    "Family": "Married 27-years with two grown children (ages 25 and 20)",
+    "Experience": "6-years on Castle Rock Town Council, former Assistant Scout Master, 20-year resident of Douglas County and 10-years as an Army Infantryman (enlisted and Officer Corps)",
+    "Campaign website": "https://www.georgefordougco.com/",
+    "Facebook": "https://www.facebook.com/GeorgeForDougCo",
+    "Twitter": "",
+    "Why are you seeking public office?": "Douglas County is an amazing place to live, work, and raise our families; the opportunities afforded here are better than anyplace else in the state. And I’d like to continue our legacy of conservative, judicious, and forward-leaning commissioners who work hard to represent the best interests of our residents and the generations of Douglas County residents to come.",
+    "What will your top three priorities be if elected?": "The same three priorities I’ve had for the last 6 years: improving transportation, mitigating the negative impacts of growth, and keeping government in-check.\n \nOn DRCOG, I’ve successfully prioritized crucial transportation projects in the county and have a proven record of success, with the necessary experience, to hit the ground running as commissioner. I’ll continue to focus on regional solutions that improve safety, decrease congestion and expand necessary arterial road networks. And I’ll keep government out of your way while allowing you to keep more of your hard-earned money. Again - just as I’ve done for the last six years.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "I’m a local-control guy, and just as our county has its own School District and (in 2024) Judicial District, we deserve to have our own County Health Board and Department that singularly serves Douglas County residents, allowing for greater autonomy and locally-represented authority.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "No. I support private property rights and free-market principles. Moreover, caps on growth don’t help in the development of better neighborhoods and they most certainly don’t increase the availability of low to mid-level housing. \n\nIf, on the other hand, we want to manage the negative impacts of growth, we can to that through better government and increased collaboration among development partners. Yes: we can build better infrastructure, invest in long-term renewable water solutions, and secure our neighborhoods while still allowing families the opportunity to own their homes and new residents the ability to achieve a better life by living here.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "No. Douglas County’s law enforcement professionals are some of the best in the country. And I know this because as an elected official of a municipality that manages its own police and firefighters, I’ve helped to provide the support and resources our Chief’s need to attract the most talented rookies, train the best officers, and retain top-notch veterans. As commissioner, I’ll continue to support our peace keepers thereby ensuring the safety and security of our residents and their property."
+  },
+  {
+    "Order": 13,
+    "County": "Douglas",
+    "District": 3,
+    "Party": "Republican Party",
+    "Name": "Lora Thomas",
+    "": "Thomas",
+    "Age": 64,
+    "Place of residence": "Highlands Ranch",
+    "Profession": "County Commissioner; former County Coroner and retired State Patrol Major",
+    "Education": "B.A. Criminal Justice, Arapahoe Community College; B.S. Finance and MBA, Regis University",
+    "Family": "My family’s been in Colorado since 1892 and we all live in the metro area.",
+    "Experience": "26-year veteran Colorado State Patrol, retiring rank of Major; DougCo Coroner 4 years and County Commissioner 4 years",
+    "Campaign website": "http://LoraThomas.org",
+    "Facebook": "https://www.facebook.com/LoraThomasforCommissioner",
+    "Twitter": "https://twitter.com/LoraThomasCO",
+    "Why are you seeking public office?": "I am seeking to continue the work I have started--to set Douglas County on a course to realize its coming-of-age as one of Colorado’s premier counties. I have focused on three closely-intertwined projects: 1) a new judicial district that begins in January 2025; 2) a new governance model for Douglas County’s public health department; and 3) improved infrastructure for transportation and water. After more than half a century, it is time Douglas County’s services, planning and infrastructure rise to meet the needs of more than 370,000 residents.",
+    "What will your top three priorities be if elected?": "First, I will focus on water and transportation infrastructure for a more secure future for DougCo; opportunities for improved water and wastewater solutions for the northwest corner of the county must be explored.  Second, careful planning is needed for the new judicial district that DougCo will anchor in 2025, along with preparations for improved governance of public health that better serves the needs of our own residents.  Finally, the Douglas County Mental Health Initiative needs continued support and oversight to remain focused on keeping individuals from falling through the cracks and removing barriers to effective mental health care access.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Public health decisions such as lockdowns and mask mandates should be made by our elected officials, not unelected, unaccountable bureaucrats.  Citizens have the constitutional responsibility of electing leaders tasked with representing the values, interests and needs of their constituents.  While consultation with qualified experts should always be part of the process, decisions that deeply impact important aspects of our daily lives should rest with those who are directly accountable to those impacted by those decisions.  Our Founders devised this system of electoral accountability because they wanted as much power/authority as possible to rest with the People.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I do not support the imposition of artificial growth caps at any level of governance.  As a county commissioner who has made land use decisions for the last four years, I recognize the importance of a strong master plan process that identifies the needs and desires of each community or subarea which is part of a larger whole.  This plan needs to be supported by zoning regulations and criteria that must be met in order to have orderly and sustainable growth.  If a community is not growing, it is stagnating or dying; smart growth is always better than no growth.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "As a retired State Trooper who has overseen funding of the Douglas County Sheriff’s Office, I believe that our residents received excellent policing and public safety before this legislation.  Most deputies already wore body cameras, which have proven useful, and soon all will wear them.  Providing officers with the ability to obtain insurance due to the loss of qualified immunity was an unfortunate/necessary expense to prevent a mass exodus of experienced officers.  Also, the exemptions of the Colorado State Patrol from the impositions of SB 217 have raised concerns how CSP assistance to local law enforcement will be affected."
+  },
+  {
+    "Order": 14,
+    "County": "Douglas",
+    "District": 3,
+    "Party": "Democratic Party",
+    "Name": "Darien Wilson",
+    "": "Wilson",
+    "Age": 49,
+    "Place of residence": "Highlands Ranch",
+    "Profession": "Software Consultancy Owner",
+    "Education": "Bachelor's degree, Southwestern University",
+    "Family": "Mom of three, ages 20, 16, and 9, married 24 years to college sweetheart",
+    "Experience": "I've been a small-business owner and entrepreneur for almost two decades, in manufacturing and tech. My husband and I own a software consultancy. I'm also a mom of three and active community leader.",
+    "Campaign website": "https://darien4commish.com/",
+    "Facebook": "https://www.facebook.com/Darien4Commish",
+    "Twitter": "https://twitter.com/darien4commish",
+    "Why are you seeking public office?": "I'm running for Douglas County Commissioner because we deserve a leader who listens and makes decisions driven by science, data, and facts. I am eager to serve my community and bring a fiscally responsible, business-friendly perspective to our county commission.",
+    "What will your top three priorities be if elected?": "—HEALTH— Increase support for mental health and public safety, including common sense gun safety. Make it easier for families to connect to mental health supports BEFORE they are in crisis. Now that we're in the midst of a pandemic, public health as a top priority is even more clear. —JOBS— Attract companies that bring high-paying jobs into Douglas County, enhance communications infrastructure so people can successfully work and learn from home, and remove barriers for start-ups. — CONSERVATION — Our family chose to make Douglas County home because our quality of life here is second to none - and I'd like to keep it that way for future generations. I will preserve, protect, and promote our beautiful open spaces, and ensure clean air and sustainable water sources.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Public health officials should make decisions such as mask mandates. As our country descended into the pandemic and recession over the spring and early summer, my opponent posted anti-science sentiments on social media on a regular basis. She shared the Plandemic video, QAnon quotes, and warnings about the dangers of healthy people wearing masks. CORA requests reveal Lora Thomas attempting to bully the three Douglas County members of the Board of Health not to close the county or issue the mask mandate. The day before the first of 60 Douglas County residents died of Covid, Lora's e-mailed Board of Health arguing against the shut-down: \"We can't save all people from dying. Everyone dies.\" Clearly, nonpartisan public health officials, NOT politicians, should make decisions about our health.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I don't believe capping growth is necessary right now - we have room to grow. The biggest issue of concern is whether or not we have enough water, and there are multiple ways to ensure this is possible—but we have to make it a priority.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I support Sheriff Spurlock. He and I discussed SB 217 as it was debated in the state legislature, and he told me he supports accountability. Douglas County is already very safe."
+  },
+  {
+    "Order": 15,
+    "County": "Jefferson",
+    "District": 1,
+    "Party": "Democratic Party",
+    "Name": "Tracy Kraft-Tharp",
+    "": "Kraft-Tharp",
+    "Age": 63,
+    "Place of residence": "Arvada",
+    "Profession": "State Legislator",
+    "Education": "MSW, JD (law degree)",
+    "Family": "Vern Tharp",
+    "Experience": "Family Tree Director of Adolescent Services & Director Battered Women Services, consultant 15 years with small businesses & nonprofits, 8 years State Legislator HD 29, numerous community coalitions",
+    "Campaign website": "Http://www.TracyForJeffco.com",
+    "Facebook": "Http://www.Facebook.com/TracyForJefffco",
+    "Twitter": "Http://www.twitter.com/Tkth",
+    "Why are you seeking public office?": "I am termed out of the State Legislature after 4 terms. I want to bring my expertise to my home county to help with our unique needs. Three guideposts define me and differentiate me from my two opponents: accessibility, bringing people together to find common ground, and getting things done.",
+    "What will your top three priorities be if elected?": "COVID 19, economic recovery, racial inequity",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Public health decisions should be made by public health experts based on science and facts-not through politics. Local public health officials should work closely with elected and other county officials.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "No I do not. Growth caps have effects and consequences such as unaffordable housing, congestion and increased traffic.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I fully support our law enforcement and 217 will eliminate implicit bias and increase citizen safety. Communities in JeffCo utilize innovative strategies such as homeless navigators and mental health corresponders. SB 217 protects all law enforcement through use of body cameras, increased transparency and accountability."
+  },
+  {
+    "Order": 16,
+    "County": "Jefferson",
+    "District": 1,
+    "Party": "Republican Party",
+    "Name": "Libby Szabo",
+    "": "Szabo",
+    "Age": 56,
+    "Place of residence": "Arvada",
+    "Profession": "Jefferson County Commissioner",
+    "Education": "",
+    "Family": "My husband and I and our four children and two grandchildren are all Colorado natives.",
+    "Experience": "Family business owner, State Representative and served as the first Hispanic assistant leader and my 5 1/2 years’ experience on the Board of Commissioners",
+    "Campaign website": "http://libbyszabo.org/",
+    "Facebook": "https://www.facebook.com/Libby-Szabo-281879707870",
+    "Twitter": "https://twitter.com/home",
+    "Why are you seeking public office?": "I am a firm believer that we have a duty to serve the community we call home. We can all contribute to making our community a great place for all to live, work, and play. I am running to make Jeffco a place where everyone has a voice in what they want their community to be and can have the opportunity to live their American dream, whatever that looks like.",
+    "What will your top three priorities be if elected?": "Health and Safety for all citizens\nFinding the balance in recovering from COVID-19 safely and giving our businesses a fighting chance to survive\nFinding out-of-the-box transportation infrastructure solutions",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "The best decisions are made by people working together, using different perspectives, and utilizing the facts. Combining the public health perspective with the Board of County Commissioners, allows multiple viewpoints to form the best solutions, bringing about the best balance between health concerns and citizens’ concerns.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "When growth is capped it narrows who can afford a home to the wealthy, with the means to buy a home. I believe that home ownership is part of the American dream and should be available to everyone, willing to work for it. Placing artificial caps will make the existing product more expensive. It is the law of supply and demand. We need housing at all price points to make sure that more people have the opportunity to buy a home.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "One of the core functions of our government is to keep all citizens safe. Policy reforms are a great time to reexamine what we are doing and we can improve. Sheriff Shrader, and the surrounding municipalities’ law enforcement departments, have implemented anti-bias policing standards that have been used as a national model and are highlighted in HB 217. Jeffco has proven these reforms work. Good government should always explore ways to further improve oversight of law enforcement and other government functions."
+  },
+  {
+    "Order": 17,
+    "County": "Jefferson",
+    "District": 2,
+    "Party": "Republican Party",
+    "Name": "Joni Inman",
+    "": "Inman",
+    "Age": "",
+    "Place of residence": "Golden",
+    "Profession": "Business Consultant",
+    "Education": "BS Business Administration",
+    "Family": "Married for 39 years to Greg; four children, five grandchildren, Two daughters-in-law",
+    "Experience": "Public sector, private sector and non-profit management experience.",
+    "Campaign website": "https://www.joniforjeffco.com/",
+    "Facebook": "https://www.facebook.com/joniforjeffco/",
+    "Twitter": "",
+    "Why are you seeking public office?": "Jefferson County is my home, having lived here since the 8th grade. My entire professional career is based here. I’m part of the tapestry of the community. We’ve always been “ladies and gentlemen doing business with ladies and gentlemen” but that has been steadily eroding.  We’re seeing deep political divides. I’m respected across the political spectrum, have solid management experience, and love of community. I’m running to help bring us back together, to honor Jeffco’s heritage while strategically planning for its future, and to bring my management experience to bear on providing excellent county services in a fiscally prudent manner.",
+    "What will your top three priorities be if elected?": "- Responsible, competent management of our taxpayer dollars.\n- Community safety\n- A flourishing business environment",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "Emergency decisions, for a limited time, should be made by the public health director. Beyond a very short-term \"emergency\" situation (days not months), those decisions should be made by elected officials, who are accountable to the people, in consultation and with, and the advice of, the local public health director.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I oppose growth limits and would not support such legislation in Jefferson County.  Growth limits cause artificially inflated property values, resulting in higher property taxes for homes in that area, leading to the inability of seniors and others seeking affordable housing options to be able to move into our community. I believe that this artificial inflation of property values unintentionally leads to socio-economic discrimination. And, they do nothing to relieve congestion on our highways and roadways, reduce crime, or reduce the numbers of people moving into Colorado from out of state.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "The Jefferson County Sheriff’s Department and the municipal police departments in the County are very well trained in incident de-escalation. There has not been a claim of police brutality in the Sheriff’s Department in over 30 years. Much of what SB 217 requires, such as on-duty body cameras, is already the practice in Jefferson County, therefore I do not think it will have much impact in our community. While I understand that there may be systemic problems in large, inner-city departments across the country, or even in our state, this does not appear to be the case in Jefferson County."
+  },
+  {
+    "Order": 18,
+    "County": "Jefferson",
+    "District": 2,
+    "Party": "Democratic Party",
+    "Name": "Andy Kerr",
+    "": "Kerr",
+    "Age": 51,
+    "Place of residence": "Lakewood",
+    "Profession": "Teacher",
+    "Education": "Master’s degree in Information and Learning Technologies from CU Denver; Bachelor's degree in Geography from CU Boulder",
+    "Family": "Wife - Tammy McClure-Kerr; Children - Braden, Kennedy, Griffin; Rescue dogs - Angus and Goose",
+    "Experience": "I'm a 25 year Jeffco Social Studies teacher & currently serve on the board of Bicycle Colorado and the Second Wind Fund. Former State Representative from 2006-2012, & State Senator from 2012-2018.",
+    "Campaign website": "https://kerrforjeffco.com/",
+    "Facebook": "https://www.facebook.com/",
+    "Twitter": "https://twitter.com/kerrforjeffco",
+    "Why are you seeking public office?": "I’m running to make sure that Jefferson County remains one of Colorado’s best places to live, work, play, and raise a family. My experiences as a teacher across Jeffco’s school system and through twelve years of service in the state legislature have given me the unique knowledge and collaborative leadership skills that we need to fight for our environment, small businesses, and working families in Jefferson County. We’re lucky to be home to a large population of hardworking people spread across our mountain and metro communities. They deserve commissioners whose life experiences look a lot like their own, and who work for everybody – not just wealthy and powerful interests.",
+    "What will your top three priorities be if elected?": "Public Health - While I’m proud of much of Jefferson County Public Health’s response to this challenge, this crisis has made clear that we need to adequately fund our public health system such that we can staff it with the best, most qualified individuals. \n\nWildfire Mitigation - Jeffco’s cherished foothills are at extreme wildfire risk, and receive less than their fair share of state and federal resources for adequate fire mitigation. I’ll raise this issue to the forefront to protect our public lands, homes, and health. \n\nAffordable Housing - Our communities are better when our teachers, firefighters, grocery store clerks, and everyone else are able to live close to where they work. As commissioner, I’ll fight so that our zoning, growth, and county budget decisions reflect that vision.",
+    "Should decisions about public health -- such as requiring mask wearing -- be made by elected politicians, local public health officials or a combination? Explain your answer.": "It's a combination. At the end of the day, our elected commissioners will be held to account for the people they hire, the actions they take, and whether their decisions are made using science and data. Dr. Mark Johnson had been Jefferson County’s Director of Public Health for two decades, and was preparing to retire in early 2020 when this pandemic started to spread around the world. Dr. Johnson’s expertise, leadership, and swift decision-making helped Jeffco make smart choices to suppress the spread of the virus, and our Commissioners were wise to take his guidance in enacting mask orders, social distancing guidelines, and business reopening plans. When expert guidance proves to be controversial, it’s on county commissioners to explain their decision-making to their constituents.",
+    "Do you support efforts to cap growth at the county or regional level? Why or why not?": "I oppose artificial growth caps, and helped lead the opposition to Lakewood’s Initiative 200. Caps do nothing to solve growth problems. In fact, they make affordable housing and congestion problems worse, while adversely impacting our small businesses. Growth and development is essential for a strong economy, and they need to be balanced with environmental concerns to ensure our legendary quality of life. But that same quality of life is better when we welcome people into our community instead of turning them away while saying, “I got mine.”Commissioners must develop an expertise about each proposed new development. Jeffco’s Comprehensive Master Plan does a good job in balancing growth with its impacts to schools, jobs, parks, and neighborhoods, and I look forward to making it even better.",
+    "Do you believe SB 217, the state police reform bill, will improve policing and citizen safety in your county? Why or why not?": "I do, and I don’t think I’m alone in that belief: The vote in the Colorado Senate was nearly unanimous, and included Republicans with unique insight into law enforcement issues, including Senator John Cooke, a former Weld County Sheriff. Fundamentally, SB217 ensures that a jurisdiction's law enforcement is accountable to the people who live in that jurisdiction. We’re all safer when we know that the rules that apply to people also apply to police. Nobody should be afraid to call the police, and nobody should perceive their local law enforcement officials as antagonists. SB217 does much to rebuild community links to law enforcement, especially in line with what many communities need during this historic moment in social justice.  I look forward to seeing how we move forward in the future."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

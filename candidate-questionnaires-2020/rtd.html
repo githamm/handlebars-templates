@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RTD Handlebars Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?</strong>
+            {{this.[The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?]}}
+            &nbsp;
+            <strong>What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?</strong>
+            {{this.[What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?]}}
+            &nbsp;
+            <strong>In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?</strong>
+            {{this.[In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "Name": "Kyle Bradell",
+    "Age": 35,
+    "Place of residence": "Denver",
+    "Profession": "Uber/Lyft Driver",
+    "Education": "Saint Louis University - Political Science & Spanish",
+    "Family": "",
+    "Experience": "-Accountant for 9 years\n-Volunteer for 3 years with RTD's disability committee\n-Ride-share driver for 2.5 years\n-Experienced & observed transit systems around the world as I travel frequently",
+    "Campaign website": "http://www.kyleforrtd.com",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am seeking this office as I have practical and sensible solutions to give riders and taxpayers the most bang for their buck. Presently, there are three boards attempting to figure out what RTD did wrong and how to fix it. I have seen this first-hand for the past three years as I am a volunteer member on RTD's Advisory Committee for People with Disabilities (ACPD). For example, in August 2019, RTD employees asked ACPD how to handle the influx of riders with luggage and bikes using the wheelchair ramps at train stations. I said put up a simple sign that says No Bikes, No Luggage, etc. It has been over a year now, and RTD still hasn't made up their mind. RTD needs a Director who can streamline the agency while still providing good transit service.",
+    "What will your top three priorities be if elected?": "1. Consolidate the 8 light rail lines to 4 light rail lines. Presently, RTD says there are 8 lines. There are, actually, only four - Golden, Santa Fe, I-25, and Aurora. Combining the light rail lines will improve operations, costs, labor, etc. and, the best part, put two trains per hour back into Aurora.\n2. Require the Human Resources Department to respond to new bus/train driver applicants within seven days to offset future driver shortages.\n3. Plan for the future by extending heavy rail from Peoria Station and widening I-70 from Pena to the new Aurora Highlands where the developer states 60,000 people will live, work, play.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "1. Consolidate the light rail lines to improve operations and costs. \n2. For non-union employees, continue the required furlough days. \n3. Eliminate all Fare Zones; tickets cost $3; airport tickets cost $8; lower the prices to stimulate demand. The new \"N\" Line will have the same ticket cost its entire length.\n4. Temporary Pay Cuts - Any RTD employee earning a salary would receive a pay cut — including the new GM/CEO.\n5. Eliminate the newly formed “Accountability Committee” that, presently, has been allocated $200,000. This Committee is going up against RTD’s own “Reimagine RTD” committee. \n\n\nLastly, the majority of RTD's funding is through sales and use taxes. If we don't shop and eat more, then RTD will continue to falter if the Colorado economy cannot operate at its full potential.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "My long-term vision for the metro is better transportation infrastructure for everyone. It is time to plan for the future rather than wait. Here are two examples:\n\n\n1. Extend the \"L\" line as an elevated train down MLK Blvd to Fitzsimons. This would be a successful project for everyone as there are numerous homes along MLK.\n2. CDOT must begin building road tunnels in the mountains to ease congestion. A perfect place for a tunnel is from Empire to Winter Park which would complement Berthoud Pass just as the Eisenhower Tunnel complements Loveland Pass.\n\n\nThe biggest challenge for both of these examples is MONEY. For the MLK extension, a .5% tax on all marijuana, tobacco, alcohol, & rental cars within the District could pay for it. For the proposed Berthoud Tunnel, it would be paid with tolls.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "A demand-driven approach should be considered and this approach would be better use of revenue and operations. Whereas if RTD sought an equitable level of service, then, for example, the EV bus route to Evergreen would have the exact same level of bus service like the 15 on Colfax. It is simple. If demand rises on certain bus routes more than others, then RTD should supply additional frequencies for those respective routes. Since RTD does not have unlimited funds, buses and trains cannot be placed everywhere.",
+    "District": "A"
+  },
+  {
+    "Name": "Tim Nelson",
+    "Age": 32,
+    "Place of residence": "Cap Hill (Denver)",
+    "Profession": "Educator",
+    "Education": "University of Notre Dame, Bachelor’s (English) and Master’s (Education)",
+    "Family": "A dog (Howard)",
+    "Experience": "I am an educator, RTD rider, and transit advocate. These experiences have helped me develop a lens into RTD’s strengths and where it could be improved for the benefit of all Denver residents.",
+    "Campaign website": "https://www.nelsonforrtd.com/",
+    "Facebook": "https://www.facebook.com/nelsonforrtd/",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am running for the RTD District A Board position because public transit has tremendous potential in Denver. When done right, buses and trains are not just “people-movers” but vehicles to greater economic equality, a healthier population, and more sustainable future. Unfortunately, that is not the reality that exists with RTD right now; I have seen how our system has fallen short of that ideal as a rider and educator. As director, I would work to move RTD towards its full potential.",
+    "What will your top three priorities be if elected?": "As director, I would champion the following causes: first, expedited bus travel in Denver by advocating for more transit lanes, incentivized digital ticketing, and all-door boarding; second, improved rider experience by simplifying digital platforms, freezing fares, and making bus stops more informative and accessible; third, increased core service by moving the Reimagine process forward and voting for service not projects.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "The pandemic has clarified a number of longstanding agency priorities that have been disappointing. That operators, who have valiantly served without full health protections and hazard pay, are going to face layoffs while we maintain healthy FISA savings and high senior administration pay is unconscionable. First, I support suspending FISA deposits and dipping into the reserves if necessary because we have viable alternatives to the train. The next line of cuts should come to senior administration salaries and FlexRide, which does not merit current spending based on ridership. Finally, RTD must give riders a reason to come back beyond merely existing. This means modifying service plans to further increase frequency on popular routes and making adjustments to increase bus speed.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "To better serve Denver and the metro area, RTD must become more proactive. For too long, decreases in ridership have been accepted, but the trend can be reversed. It starts with right-sizing fares for the average rider and prioritizing ridership over coverage in a redesign of the bus network. From there, RTD must partner with local governments to build infrastructure for faster transit, including full bus-rapid transit. Municipalities that truly prioritize transit—not just in name—will see the best returns for the residents. Finally, there must be discussions with the legislature and state land board about RTD’s ability to develop land effectively; the agency could be a leader in creating affordable, transit-oriented housing if certain restrictions were lifted.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "I support a demand-driven approach that focuses on serving communities with more density for two reasons. First, people, like myself, living in neighborhoods with higher density are often more dependent on transit for their mobility, and RTD focusing its service in these areas will create access to jobs and life’s necessities. Throughout the pandemic, we have seen routes that already do this retain more riders (August 4th study session). Second, focusing service on these neighborhoods has a greater likelihood of inducing ridership. The logistics and geography of running a bus route through a low-density neighborhood are challenging; it may lack walkability, and the space it needs to traverse may make it too slow-moving to be an attractive alternative to a car.",
+    "District": "A"
+  },
+  {
+    "Name": "Kate Williams",
+    "Age": 0,
+    "Place of residence": "Denver",
+    "Profession": "Nonprofit transit professional",
+    "Education": "",
+    "Family": "widowed 5 kids",
+    "Experience": "I am the incumbent and a longtime advocate for older adults & those with disabilities",
+    "Campaign website": "",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "I was asked to run based on my work in the community in transit and advocacy;  I spend a lot of time in this area – out in front of the local grocery I have heard over and over that older adults who may someday not be able to drive need good transit services; essential workers need to be able to get to work; kids need to get to school. My platform still includes the need for more smaller shorter circulators, like the Chariot pilot project in Cherry Creek and the DU shuttle.",
+    "What will your top three priorities be if elected?": "1) Offering as much service as possible 2) keeping pace with the needs of our riders 3) looking at innovative partnerships. We want all of our public transportation to be safe, clean, available, and dependable. I will work to keep up with changes in our industry - as we move forward, as we overcome COVID, as we continue to grow in some parts of the region, and have less riders in other areas. RTD needs to react quickly to opportunities and deficits.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "Everyone has been impacted by the pandemic, not just RTD. We need to look at what service we can provide, where we can provide it, alternative ways to help the public get where they need to go when they want to go there. There are options available now that were inconceivable when RTD was created. Sometimes a 40' bus to not the solution. RTD needs to partners with communities and other forms of transit to offer the most cost effective service.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "This is what I do – transit, 24/7. In my day job I run a nonprofit that helps people with transit. I have spent 4 years learning the RTD system and finding out how to be effective for issues that affect District A. It takes time to figure out what works and what does not and what can be changed. I would like to have another 4 years to continue that work – I would like to see RTD move out of the current morass that we are in and into what we all envision it could and should be.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "I believe that we should offer service to the public where the public lives and where they have shown consistent ridership. RTD should be moving people, not moving vehicles, and not spending money on services that have 5 riders an hour.",
+    "District": "A"
+  },
+  {
+    "Name": "Bobby Dishell",
+    "Age": 27,
+    "Place of residence": "Denver",
+    "Profession": "Legal",
+    "Education": "BA Public Policy - University of Michigan. MS Education - Johns Hopkins University. JD - University of Colorado",
+    "Family": "Wife - Sara Dishell. Dog - George. Chickens - Twyla, Alexis, Stevie, Ronnie",
+    "Experience": "Former public school teacher. Transit user. Amplifier of community voice for systemic change inside and outside of transit sector. Legal, policy, and urban education background.",
+    "Campaign website": "http://www.dishellforrtd.com",
+    "Facebook": "http://www.facebook.com/DishellForRTD",
+    "Twitter": "http://www.twitter.com/DishellForRTD",
+    "Why are you seeking public office?": "I am running to ensure accessible and equitable access to transportation around the Denver area. I believe transportation underlies many equity issues in our society. As a transit user, I have seen how these inequities impact different facets of our community. I am running after extensive conversations with non-profit organizations, community leaders, and activists because we need to build a transportation system that moves for us. Not only do I know and understand the issues and have the educational background and lived experiences to address them, but I am also committed to continuing to learn about what the community needs.",
+    "What will your top three priorities be if elected?": "My first priority is to work with school districts to ensure students and their families can get to school. This means working to find a way for student passes and LiVE pass applications to be readily accessible and a part of routine paperwork families already fill out. \nMy second priority is continuing to work with the community to identify and implement a plan to ensure that safety on RTD reflects the needs of the community and is not tied to private policing.\nMy third priority is to identify and implement a plan to transition RTD to a zero-emission fleet.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "The Board, with legislative partners, can reduce Board stipends and payments. If services are reduced, it should be done in an equitable way that increases services for those who are transit-dependent, while decreasing services on less transit-dependent routes. A substantial portion of RTD's budget is sales tax revenue, while 20% comes from fare collection. RTD should focus on its core service of providing reliable, safe transportation so that more people see RTD as a partner for transportation. As more people are traveling and spending across the District, fare revenue and sales tax can increase leading to a road to recovery.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "In the long-term I envision a transportation district that is easily accessible, affordable for all, safe, and is a leader in the sector for its work on equity and protecting the environment. \n\n\nThe biggest challenges to achieving this are budget constraints and willingness to work with others. RTD needs to position itself to be a hub for innovation in the transportation space by inviting public-private partnerships and pilot programs. Separately, Directors, staff, and management at all levels need ongoing training on DEIJ (diversity, equity, inclusion, justice), systems improvement, and environmental impact.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "The Board should prioritize equity by fulfilling the transportation needs for those who are transit-dependent. We should evaluate all available data to determine if the routes that currently have the highest demand are best, or, if another route may make more sense. Once we are able to serve those who rely on transportation, which is usually in higher-density communities, then we should evaluate expanding service in other areas. Equitable service means those who need the service are able to access it. Equal service means all areas get the same level of service. We need to address equitable service first.",
+    "District": "D"
+  },
+  {
+    "Name": "Paul Rosenthal",
+    "Age": 52,
+    "Place of residence": "Denver",
+    "Profession": "Teacher",
+    "Education": "MA in International Management; BA in International Relations, Univ. of Denver",
+    "Family": "n/a",
+    "Experience": "Currently teacher at a youth correctional facility 2009-present; Former State Representative 2013-2018; Member of Denver Community Corrections Board 2005-present; Member of Aurora Sister Cities Board",
+    "Campaign website": "http://www.paulforrtd.com",
+    "Facebook": "https://www.facebook.com/prosenthal.teacher/",
+    "Twitter": "http://www.twitter.com/Rosenthal5280",
+    "Why are you seeking public office?": "It is in my DNA to be in public service.  I've always enjoyed helping people whether I'm in office or not.  At the legislature, I was one of the most inclusive House members, bringing people and organizations to the Capitol who have never been there or who have never received recognition for their hard work until then.  \n\n\nRTD is in serious trouble, but I'm not daunted--I have lifelong experience listening to diverse community voices and incorporating them into my own to advocate for them while making tough decisions from an equity perspective.",
+    "What will your top three priorities be if elected?": "1.  Ensure the safety of riding on RTD and do greater outreach in order to draw riders back to trains and buses.\n2.  ReImagine RTD so that it positions for the future, including all electric buses, more frequency, efficiency, reliability, financial responsibility, and transparency.  Additionally, RTD needs to ensure that all people can ride at all levels of ability to pay.\n3.  Retain, appreciate, and support drivers and mechanics so that RTD's employees stay with the organization and perform optimally.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "Our Congressional delegation, especially US Senator Cory Gardner (a good friend of Maj. Leader Mitch McConnell and Pres. Trump) need to get RTD another payment to support its daily operations.  They also need to secure the $2.2+ billion for the northwest line to Boulder and Longmont, plus hundreds of millions to complete extensions on other lines and Bus Rapid Transit on various lines.  The RTD Board is considering tapping the FISA funds in an account for network expansion--I support using some of those funds to reduce cuts.  It is also contemplating laying off and/or furloughing drivers and other employees.  That should be last resort.  I support cuts to pay to employees earning over $60,000 per year.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "See discussion above.  Also, ideas I think RTD should consider implementing in the future:\n1.  All electric buses within 10 years\n2.  Shuttles & expanding relationships with Uber and Lyft in neighborhoods to help collect riders to connect with major rail and bus routes.\n3.  More passes, especially to individuals and families struggling financially\n4.  Expanding the rail network & Bus Rapid Transit on Colfax\n5.  Connect RTD system with a statewide rail network that must eventually be built\n\n\nNaturally funding is critical to all these ambitious endeavors, but also leadership, political will, and building coalitions and support with elected officials throughout the region and at all levels of government.  RTD will have to expand use of P3's to partner with private business as well.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "It really is a balance because even communities with less density pay into the system.  However, understandably RTD, because of financial and logistical necessity, is focusing on expanding service on routes where there is a lot of demand and reducing service on less traveled routes to balance the system through this crisis.",
+    "District": "E"
+  },
+  {
+    "Name": "Bob Broom",
+    "Age": 82,
+    "Place of residence": "Aurora",
+    "Profession": "Retired Investment Banker",
+    "Education": "MBA University of Denver",
+    "Family": "Married 58 years 2 adult daughters",
+    "Experience": "21 years in City Government as a Finance Director and City Manager in Illinois, Florida and Colorado 25 years underwriting municipal bonds.",
+    "Campaign website": "http://www.BobBroomForRTD.com",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "To complete the Fastrac system promised to the voters and to improve traffic congestion and air quality in the Metro area. Good public transit attracts leading companies and jobs for our kids.",
+    "What will your top three priorities be if elected?": "1. Restore financial stability  2. Improve first and last mile connections for riders  3. Right size the organization to maximize transit service offered to the public",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "With RTD operating at a 60% service level with 40% ridership compared to pre-pandemic days we will need to reduce our workforce until sales tax and fare revenues improve along with customer demand. The Board will continue to look for new revenue sources to diversify our revenue base.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "We need to work closely with CDOT and the E-470 Highway Authority to provide more access and transit service for the Commercial development taking place South and East of DIA in Aurora. We also need to work with the backers of front range rail to provide rail service to Longmont / Boulder and Denver as well as DIA.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "We need to pay attention to both. With limited resources we must strive for a delicate balance and look for new ways to serve low density areas. Perhaps vouchers could be offered to supplement the service we offer.",
+    "District": "F"
+  },
+  {
+    "Name": "Julien Bouquet",
+    "Age": 26,
+    "Place of residence": "Lone Tree",
+    "Profession": "Teacher",
+    "Education": "University of Denver",
+    "Family": "My wife and myself have grown up here in Douglas County.",
+    "Experience": "I am currently in my fourth year of teaching for Douglas County School District. I have also been a community organizer and volunteer since 2012.",
+    "Campaign website": "https://www.bouquet4rtd.com",
+    "Facebook": "https://www.facebook.com/pg/bouquet4RTD",
+    "Twitter": "",
+    "Why are you seeking public office?": "My wife and I were constant RTD riders during our college years. Now that we live next to a light rail station, we noticed the price of the fare was not affordable and the time of the ride was not efficient compared to the other public transportation networks we have used in other cities. As I continued to do the research, I found that RTD has had major issues in the last four years including: a budget crisis, decreasing ridership, and employee dissatisfaction. I am running for this office to create innovative solutions to fix the growing amount of problems RTD is facing.",
+    "What will your top three priorities be if elected?": "My top three priorities as director will be: launching an information campaign about rider safety, creating affordable fares and protecting driver/operator employment. One of my first goals would be spearheading an information campaign regarding COVID safety while riding RTD. We need to communicate to the public that we as an agency are taking all the steps necessary to stop the spread of COVID. I believe this campaign will be most effective if we pair it with a decrease in fare rates. Lastly, we need to reevaluate other options to fixing the RTD budget crisis besides simply cutting drivers and operators.There appears to be a real lack of advertising and marketing to promote ridership. A balanced budget must be achieved by working on the demand side as well as the supply side.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "The largest issue that motivated me to run for RTD Director was the decreasing ridership over the years. Creating a fare rate that is competitive with other forms of transportation here in Colorado will be one way to encourage more ridership. More ridership will mean more revenue for RTD. As a Board of Directors, we also need to think of more innovative solutions of how to manage our finances. Vehicle size would be one example of this. We are not being efficient if we are still using the same large buses that are mostly empty. We could replace those vehicles with smaller shuttles without having to eliminate the route. As above, for little marketing dollars, we can also employ social media as a tool to promote ridership.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "I have talked to hundreds of constituents during this campaign. One theme I have noticed from constituents who come from cities with successful transportation networks, is that the public knows they can easily access and always rely on public transportation. We need to create this mindset here in Colorado. Riders need to enjoy their experience while riding, so that they continue to ride with RTD. Riders need to feel that their ride was affordable, accessible, safe and efficient. The challenge will be communicating this with the public. If we initiate affordable fares, create more efficient routes, promote safety and advertise this to the public we can increase and sustain our ridership.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "In our current condition, I believe it to be the more practical approach to focus on the high density communities where the demand exists and will be utilized. As important as it is to expand in Colorado, RTD does not currently have a feasible and reliable course of action that would result in the benefit of that expansion. In order to get RTD back on track, we must first establish desirable means of transportation that currently run within our existing routes. This includes lowering fare rates, stabilizing employee relationships, and prioritizing the overall quality of the ride itself.",
+    "District": "G"
+  },
+  {
+    "Name": "Ken Mihalik",
+    "Age": 40,
+    "Place of residence": "Parker",
+    "Profession": "Aerospace Subcontracting",
+    "Education": "MBA from Texas Christian University",
+    "Family": "Married for 15 years",
+    "Experience": "As the current district representative, I have experience with agency budgeting, auditing, oversight of the general manager and the hectic schedule",
+    "Campaign website": "",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "Originally, it was to give volume to my voice. As a non rider, I was suspicious about overrun budgets and schedules. Having been there 4 years, I'm less sceptical, and more sympathetic.\nI would like to continue representing the Southeast metro area through, what will likely be, a tumultuous next term.",
+    "What will your top three priorities be if elected?": "My hope is to continue the work that falls under the umbrella of Reimagine RTD. This is meant to be a blank canvas, ground up redesign of the system. It became even more complex for example, after the plunge in sales tax collections and commuting needs this year.\nSecond would be to foster, what will hopefully be, an exciting culture lead by the new General Manager.\nAnd third, have RTD continue to lead in pilot programs that offer more flexible, convenient, cost efficient options.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "While the financial projections were not good before the virus, it has accelerated what might have been incremental, longer time frame, reductions.\nWith a 60% drop in ridership, the only practical response is that RTD will be a smaller agency. I do support the recommended staffing cuts along with a considerable, though not unprecedented, reduction in compensation.  Those at the top seeing the largest reductions. This is in line with other local governments and transit agencies. I am not supportive of any tax increase initiatives.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "Regardless of your thoughts on RTD, it is the model for many other transit agencies. For a government agency, it is remarkably nimble and innovative.  \n\n\nBeyond the significant financing challenges, this year has seen drastic changes in commuting and travel patterns and changes to entertainment and dining preferences. \n\n\nAdditionally, there is the shifting demographics that will affect public transit needs/demands. \n\n\nIn order to adapt, it will be imperative for RTD to seek out and invite change, and develop partnerships that ultimately provide sustainable, desirable and dependable service.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "This is a difficult question for small agencies, let alone for RTD which has the country's largest geographic area. If people continue to work from home for the foreseeable future, or at least commute less frequently, then I think there is a strong argument for service to be provided more evenly across the district. \nBefore the virus, Douglas county for example, had the largest gap in taxes paid versus services received. I think a  voucher system (one is being discussed) is another mechanism to be more equitable for distribution of funds while offering flexibility to the end user.",
+    "District": "G"
+  },
+  {
+    "Name": "Regan Byrd",
+    "Age": 33,
+    "Place of residence": "Littleton",
+    "Profession": "Anti-Oppression, Diversity, Equity, and Inclusion Consultant",
+    "Education": "Bachelors Degree",
+    "Family": "Single with Nuclear and Extended Family in Colorado",
+    "Experience": "RTD rider for over 15 years, Public Policy and Sociology academic background, 13 years in non-profit operations, community organizing, and advocacy.",
+    "Campaign website": "http://www.regan4rtd.com",
+    "Facebook": "https://www.facebook.com/regan4rtd/",
+    "Twitter": "",
+    "Why are you seeking public office?": "I have been a routine user of RTD for over 15 years, and have relied on this system for transportation to work, home, gatherings, grocery stores, the doctor's office, etc. I have seen RTD cut itself into oblivion over the past decade and fail to take its obligation as a critical service seriously. Transit is the circulatory system of a community; it gets people and resources where they need to go. As an equity consultant with an academic background in public policy and community organizing, I understand how to work with taxpayers, riders, and RTD staff to move RTD forward.",
+    "What will your top three priorities be if elected?": "The useability/utility of the RTD system for both riders and operators will be my top concern during my term, as well as fiscal stability, and transparent decision making with the communities RTD serves . RTD has already faced major budgetary hurdles, and the people who end up suffering the most from the Board of Directors’ myopic decision making are riders and bus/train operators. RTD is already discussing operator furloughs (despite current operator shortages) and additional service cuts, instead of thinking creatively about both its revenue and other areas of excess spending. People need a functioning, affordable transit system.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "RTD needs to consider increasing revenue by making RTD once again an affordable, effective transit option for a wide range of incomes and transportation preferences, thus potentially increasing ridership. RTD should also increase revenue through the avenue it already uses for income: sales/use tax. RTD currently levies a 1% sales tax in the counties it serves, and even a small increase could have stabilizing effects on RTD’s budget. RTD should also consider working creatively with state elected officials regarding earned income opportunities, like charging for parking at RTD Park N Rides.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "My long term vision for RTD is that it evolves to meet the needs of a growing city and an ever changing economical and residential outlook in Colorado. Transit has a crucial role to play in our recovery from effects of the pandemic, in creating livable communities, and in meeting the diverse transit needs of our people. RTD has budgetary challenges, but those challenges are rooted in deeper issues of values and a myopic approach to transit. We need new leadership and that is why I am running.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "I favor maintaining an equitable level of service across the coverage area to ensure affordable transit options to a wide variety of constituents, including suburban and rural communities, low income and working class riders, and disabled riders.",
+    "District": "H"
+  },
+  {
+    "Name": "Roger Edwards",
+    "Age": 70,
+    "Place of residence": "Highlands Ranch",
+    "Profession": "Transportation industry",
+    "Education": "B.S. Business Administration with a major in Accounting",
+    "Family": "Married",
+    "Experience": "Managed $150M transportation and logistics budget for a large manufacturing company.",
+    "Campaign website": "http://RepresentTheDistrict.com",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "Experience differentiates me from the other two candidates.  I am the only candidate that has a career in transportation and logistics. I have attained certification as a Six Sigma Green Belt.\nMy training in modern methods of management, such as Six Sigma and continuous quality improvement, saved my company millions by improving process and eliminating waste and re-work. \n\n\nRTD is in desperate circumstances; change must occur. Six Sigma management practices harness the energy of the whole organization to adopt the necessary change to achieve sustainable service.",
+    "What will your top three priorities be if elected?": "My goal for RTD is excellence in public policy. As a non-partisan office, there is a significant opportunity to focus on public transportation without partisan politics. 1. Breaking down barriers created by bureaucracy and management silos will allow RTD to move to a sustainable level of service that benefits the organization and those depending on public transportation. 2. RTD must establish continuity of purpose. 3. RTD must redefine its mission statement to adapt to the economic environment of the foreseeable future.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "When budgets tighten, you can do several things, cut expenditures, work smarter, or charge more. At the top of the list should be working smarter. Modern methods of management can save many millions; I have experience in implementing these kinds of changes. RTD has 72 pages of organizational charts; “rightsizing” the management team is the current buzz word used by CEO candidates.\nRaising the sales tax should be a non-starter; the public will not stand for it.  Raising light rail fares should be on the table. Increase ridership by offering more service value.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "The responsibility of the Board of Directors is to provide governance for RTD staff. RTD management councils board members to not get involved in management. Directors must know what governance looks like. Without experience, the board can be steamrolled by staff.\nWe are now seeing the cumulative result from not providing experienced and knowledgeable oversight of RTD staff. The Governor recently appointed a select committee of experts and political representatives to look into all things RTD. A profound rebuke of the Director's responsibilities.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "An “equitable” level of service is an undefinable subjective measure. RTD operates within the constraints of revenue provided by taxpayers. With any scarce resource, it is responsible to allocate the most effort to satisfying the largest population of customers/riders. Should there be a population of disadvantaged customers or riders that require access, then the State government should step in to provide direct payments in the form of vouchers or prepaid debit cards to allow those individuals to access the appropriate transportation mode. RTD should not be a vehicle to distribute welfare.",
+    "District": "H"
+  },
+  {
+    "Name": "Doug Tisdale",
+    "Age": 71,
+    "Place of residence": "Cherry Hills Village",
+    "Profession": "Public Servant, Attorney, Actor, Emcee, Auctioneer, Economic Developer, Writer",
+    "Education": "J.D., The University of Michigan Law School; B.A., The University of Michigan College of Litrerature, Science & the Arts",
+    "Family": "Widowed, Father of four children, Grandfather of four grandchildren",
+    "Experience": "RTD District H Director (incumbent). Attorney at Law for 45 years. Mayor, Mayor Pro Tem, Councilmember-Cherry Hills Village. Exec Committee & Board Director, APTA. Officer & Exec Committee, DRCOG.",
+    "Campaign website": "https://tisdalertd.com/",
+    "Facebook": "https://www.facebook.com/doug.tisdale1/",
+    "Twitter": "https://twitter.com/DMTisdale",
+    "Why are you seeking public office?": "Public service has been deeply ingrained in me since taking my first oath of office in 2000. Sworn to uphold the Constitution and represent my constituents, I provide leadership and advocacy for citizens as an elected official, dedicated to the proposition that government should use taxes to provide important and necessary services, while avoiding any overreach into the private lives of the citizens it protects and serves. In my law practice I represent clients before government agencies and courts, ensuring they are treated fairly and given their full benefits under law or contract. As an elected official I follow that same path.",
+    "What will your top three priorities be if elected?": "I will use my 20+ years of mass transit experience to create positive economic results, ensuring RTD’s FISCAL SUSTAINABILITY. I am instituting dramatic steps to maintain at least the current reduced service we offer, while working directly with Congressional leaders and USDOT to create a second round of COVID emergency funding for public transportation. As the economy strengthens and the pandemic subsides, we will restore service and maintain that fiscal sustainability. As an elected, I understand ACCOUNTABILITY, working directly with voters and regulatory agencies to ensure accountability and responsiveness, all of which is always done with complete TRANSPARENCY.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "Sales tax revenues, farebox revenues, ridership and service are all down due to the pandemic. Without the strong steps I propose, for administrative cost reductions and strategic reductions in scheduled service, supplemented by my diligent work directly with Congress and USDOT to secure additional COVID relief funding and additional federal grants and savings through refinancings, the 2021 deficit would be $215 Million. My budgetary experience with RTD, APTA, DRCOG, Cherry Hills Village, and numerous Fortune 500 companies and dozens of banks I have represented, is helping us chart a course toward fiscal sustainability.  Much more detail is found at www.TisdaleRTD.com.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "To guarantee safe, clean, reliable, courteous, cost-effective mass transit to persons throughout the District. The principal challenges are financial and perception: securing dollars needed to provide that service and addressing the perception that buses and trains are not safe and reliable. As for finances, see my responses above and get more detail at www.TisdaleRTD.com (remember, TisdaleRTD is all one word because nothing separates Tisdale from RTD). As for perception, we must continue to communicate, collaborate and cooperate with our constituents and fellow elected officials to prove to them that we are providing what we promise, especially safety!",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "This is not an either/or proposition. We at RTD are balancing frequency (the demand-driven model) and coverage. RTD is almost 2,400 square miles (bigger than Delaware) with 3.2 million people (bigger than Utah). We provide 142 fixed bus routes, serviced by 1,026 buses, with over 800 of them on the road during peak hours. We provide over 100 miles of rail service with 73 stations. Coverage is pretty good but could be better. Finding the right balance is what our ReImagine RTD project is all about, which is being adjusted and modified with helpful input from the Governor’s Accountability Committee.",
+    "District": "H"
+  },
+  {
+    "Name": "Marjorie Sloan",
+    "Age": 75,
+    "Place of residence": "Golden",
+    "Profession": "Lawyer",
+    "Education": "B.A., Marietta College; M.Ed. Ohio Univ.; J.D. Univ. CO",
+    "Family": "Husband Dendy, Sons Trey (Tracy) and Mark (Karin), Grandchildren Meghan and Ryan",
+    "Experience": "Work:  Partner, BakerHostetler; Staff  Counsel,10th Cir. Ct. of Appeals; Teacher, underserved schools.\nCivic: Golden mayor, councilor, planning commissioner, urban renewal authority representative.",
+    "Campaign website": "http://MarjorieforRTD.com",
+    "Facebook": "http://https://www.facebook.com/MarjorieforRTD",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am committed to community service. Right now, RTD is in a precarious state -- financially, operationally, and politically. My core belief is that an efficient, equitable public transit system is a lifeline for individuals, businesses, and organizations. Solving RTD's current problems is necessary, difficult, and doable. I would be honored to work with the public, RTD workers, experts, and other leaders so that RTD emerges as the transit agency the Metro Area needs and deserves.",
+    "What will your top three priorities be if elected?": "1. Recognize financial realities.\n2. Reach innovative solutions for prioritized needs. And \n3. Demonstrate respect for patrons, employees, and partners.",
+    "The coronavirus pandemic has created a severe budget crunch that's expected to last for several years. How should RTD cut spending and/or increase revenue?": "The pandemic has caused rippling uncertainty, financial shortfalls, and upended transit. During severe economic downturns, the federal government has the ability to offer financial aid when no other entity can. Partnering with other transit agencies to lobby this position would be wise. RTD's own revenues, however, are unlikely to increase in the short or medium term. So with or without a federal infusion, RTD faces a herculean cost-cutting task. From an outsider's perspective, management salaries appear vulnerable to the budget axe. For further opportunities to whittle down the predicted deficit, I would work with other board members, staff, members of the accountability committee, nonprofit decision-makers, and local government officials to identify potential reductions.",
+    "What is your long-term vision for RTD to better serve Denver and the metro area? What are the challenges to achieving it?": "Passengers board buses and trains to get to the important places in their lives. Taking transit should not be a job in itself. Riders deserve vehicles that show up; get them to their destinations in a reasonable amount of time; and offer comfortable, convenient trips for an equitable fare. An accommodating transit system will meet the needs of riders and businesses as well as reduce congestion, improve air quality, and boost  economic opportunities. Of course, there are challenges to achieving this vision. The primary challenge is obtaining the necessary financial resources to rebuild RTD. Additionally, RTD officials and employees will need to serve as a change agent, fostering a positive public attachment to transit.",
+    "In a district as large as RTD, should the board take a demand-driven approach that focuses service in communities with more density, or do you favor maintaining an equitable level of service across the coverage area?": "As posed, this is an either/or question about a nuanced situation. Residents of the entire district pay taxes to RTD. They all have vested interest in the viability of the complete system and also an entitlement to service. Only a data-driven approach will make RTD nimble enough to balance both these the needs. The bottom line is the prevention of riders left waiting on a busy street corner while an empty bus circles past deserted bus stops.",
+    "District": "M"
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>U.S. House Handlebars Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Should the Affordable Care Act be replaced? If so, what would you replace it with?</strong>
+            {{this.[Should the Affordable Care Act be replaced? If so, what would you replace it with?]}}
+            &nbsp;
+            <strong>Do you support a ban on fracking? Why or why not?</strong>
+            {{this.[Do you support a ban on fracking? Why or why not?]}}
+            &nbsp;
+            <strong>What, if anything, should the federal government do to improve the economy?</strong>
+            {{this.[What, if anything, should the federal government do to improve the economy?]}}
+            &nbsp;
+            <strong>Do you support further federal restrictions on firearms? If so, which restrictions?</strong>
+            {{this.[Do you support further federal restrictions on firearms? If so, which restrictions?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 3,
+    "Party": "Democratic Party",
+    "Name": "Diane Mitsch Bush",
+    "Age": 70,
+    "Place of residence": "Steamboat Springs",
+    "Profession": "Candidate for Congress",
+    "Education": "I earned a BA in Sociology and PhD in Sociology from University of Minnesota, Twin Cities.",
+    "Family": "Michael Paul is my husband, and we live in Steamboat Springs.",
+    "Experience": "Former tenured professor, Routt County Commissioner, and State Representative.",
+    "Campaign website": "https://dianeforcolorado.com/",
+    "Facebook": "https://www.facebook.com/RepDMB",
+    "Twitter": "https://twitter.com/RepDMB",
+    "Why are you seeking public office?": "I’m running for Congress to use my proven skills to solve problems facing us in CD 3 and unite our country. Washington is full of divisive partisan rhetoric and inaction. I’ll work for all of us, not just Washington insiders and ideologues. I’ve always taken a bipartisan, pragmatic approach to representing the people. In the State House, I stood up to my party’s leadership for my constituents. As a county commissioner and state representative, I earned the reputation as an independent leader who brings people together. I’ll work with Republicans and Democrats for pragmatic, evidence-based solutions for a brighter future.",
+    "What will your top three priorities be if elected?": "First, lowering health care costs by strengthening the ACA, authorizing Medicare to negotiate lower prescription drug prices, funding the Children’s Health Insurance Program (CHIP), funding for rural hospitals, and ending surprise billing.  \n\nSecond, I propose a federal infrastructure bank to invest in infrastructure that puts Coloradans back to work and brings prosperity. COVID has shown how weak the medical supply chain is, so I propose incentives to manufacture medical supplies products in CD 3.\n\nThird, protecting public lands. They’re our heart and soul, and a major economic driver in Colorado because 500,000 jobs in Colorado rely on our public lands.",
+    "Should the Affordable Care Act be replaced? If so, what would you replace it with?": "No, it is the only law on the books that protects more than 300,000 people in CD 3 with a pre-existing condition. Repeal would also eliminate ACA’s mental health parity provisions, roll back Colorado’s Medicaid expansion—taking coverage away from thousands of people in our district—and prevent young people from staying on their parents’ health insurance plans until age 26. We need to strengthen the ACA by ending surprise billing and increasing competition among insurers. Repeal would be disastrous in the middle of the pandemic.",
+    "Do you support a ban on fracking? Why or why not?": "Authority over permitting on private lands resides with state and local governments. Congress has authority over permitting on federal public lands. I don’t support a blanket ban. I support partnerships and consensus agreements like the Thompson Divide Agreement which set aside some areas on our public lands as off-limits to oil-gas exploration and development.  Development is already prohibited on wilderness areas. Public lands leasing needs a full -National Environmental Policy Act (NEPA) process to consider all impacts. We must reinstate and enforce the methane rule and other air, water, and wildlife protections. I oppose sale of our public lands.",
+    "What, if anything, should the federal government do to improve the economy?": "Congress should pass additional COVID relief legislation immediately, but this time we must improve the administration of the Paycheck Protection Program, or a similar program, to make sure that small businesses, nonprofits, and local/state governments get aid in a timely manner and multinational corporations can’t take advantage of it. \n\nWe should also invest in water, transportation, the electric grid, and broadband infrastructure. Infrastructure creates good jobs immediately and then has major multiplier effects. Investing in infrastructure helps our local businesses, hard working families, and our communities to thrive and succeed, and recover from COVID.",
+    "Do you support further federal restrictions on firearms? If so, which restrictions?": "I strongly support the Second Amendment and responsible gun ownership. I don’t support taking guns from law-abiding citizens.\n\nI do support federal universal background checks to keep guns out of the hands of dangerous criminals. Since 2013, Colorado’s universal background checks law has prevented over 300 convicted, violent felons from obtaining guns each year. \n\nProtecting survivors of domestic violent requires background checks. I understand domestic violence calls firsthand. My first husband was a police officer in Minnesota before we moved here in 1976. For him and his colleagues, the most dangerous call was an instance of domestic violence."
+  },
+  {
+    "District": 1,
+    "Party": "Approval Voting Party",
+    "Name": "Jan Kok",
+    "Age": "",
+    "Place of residence": "Fort Collins",
+    "Profession": "Software and Electrical Engineer",
+    "Education": "Bachelor of Science in Computer Science, Colorado State University",
+    "Family": "",
+    "Experience": "Cofounder and former Vice Chair of The Center for Election Science (electionscience.org)",
+    "Campaign website": "http://www.approvalvotingparty.com/",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "To bring attention to the problems with our vote-for-one voting method and promote better alternatives such as Approval Voting.\nIn races with more than two candidates, voters are often forced to choose the \"lesser of two evils\" rather than vote for who they really would prefer. And sometimes the most-preferred candidate can lose to a less-preferred one because of vote splitting, as for example in the 1992 and 2000 presidential elections. This is a serious problem because of the enormous influence of government on our lives. Better voting methods can help choose better leaders.",
+    "What will your top three priorities be if elected?": "1. Enable states to use Approval Voting in federal-level elections.\n2. Repeal legislation that prevents the use of proportional representation voting methods in elections for state legislatures and the US House of Representatives.\n3. Support measures such as the National Popular Vote to bypass the Electoral College and enable election of the US President by direct popular vote.",
+    "Should the Affordable Care Act be replaced? If so, what would you replace it with?": "The health care industry is burdened by an enormous amount of government regulation, which raises costs that we have to pay either out-of-pocket, through our insurance premiums, or through our taxes. I would look for opportunities to reduce and simplify regulations and increase competition.",
+    "Do you support a ban on fracking? Why or why not?": "Remember OPEC and the gas lines of the 1970s? That's what happens when we depend too much on foreign countries for crucial resources such as oil. Fracking has helped us regain our energy independence and keep more of our energy dollars and jobs in the US. Of course I understand the environmental concerns. We need to continue to find ways to minimize and mitigate the environmental impacts of fracking.\nApproval Voting can encourage more candidates to run for office and contribute their unique proposals to the public dialog, thus leading to better solutions to difficult issues such as fracking.",
+    "What, if anything, should the federal government do to improve the economy?": "Get out of the way. Repeal the laws and regulations that are impeding economic recovery.\nFor example, getting the pandemic under control is important for economic recovery. Allow fast-tracking of treatments and vaccines for Covid-19. Will that lead to increased risk of problems with those treatments? Probably. But I think it's better to make those treatments available to those who are desperate and willing to accept the risks, than to delay access for everyone until the treatments can be \"proven\" safe.",
+    "Do you support further federal restrictions on firearms? If so, which restrictions?": "No. More gun laws won't prevent determined criminals from obtaining guns.\n\nDo you agree with my positions on the issues? Or perhaps you agree with another minor party candidate with different positions? Do you want to vote for me (or them), but feel you have to vote for the lesser-evil candidate in order to keep the greater evil from winning? Our present voting method allows you to vote for only ONE candidate. Approval Voting looks very similar, except you can vote and show your support for ALL the candidates you like. Whoever gets the most votes wins!"
+  },
+  {
+    "District": 5,
+    "Party": "Unaffiliated",
+    "Name": "Marcus Murphy",
+    "Age": 45,
+    "Place of residence": "Fountain",
+    "Profession": "Lawyer",
+    "Education": "M.B.A./J.D.-Ole'Miss; B.B.A./B.A.-UT-Austin",
+    "Family": "N/A",
+    "Experience": "8 yrs. as Attorney; 15 yrs. as CFO",
+    "Campaign website": "http://facebook.com/MurphyForCongressCO5",
+    "Facebook": "http://facebook.com/MurphyForCongressCO5",
+    "Twitter": "",
+    "Why are you seeking public office?": "To save Women's Healthcare and Medicare/-id & to help the People of Colorado Springs",
+    "What will your top three priorities be if elected?": "Corona-virus Economic-Relief; Vaccine-Distribution; & Infrastructure-Improvement",
+    "Should the Affordable Care Act be replaced? If so, what would you replace it with?": "No, Medicare/-id should continue to be expanded, as well as private employer-provided coverage, along w/ gov't subsidies, in order to save lives. Healthcare for All is not the same as Medicare for All or Socialized-Medicine!",
+    "Do you support a ban on fracking? Why or why not?": "Only is cases of Ground-Water Leakage/Contamination or Earthquakes near Populated-Areas.",
+    "What, if anything, should the federal government do to improve the economy?": "Reduce the Debt & Interest-Payments, Eliminate the Budget-Deficit, & improve Foreign-Trade Agreements",
+    "Do you support further federal restrictions on firearms? If so, which restrictions?": "No, I'm a lifetime-Member of the NRA."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

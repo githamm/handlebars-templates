@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Colorado State House Handlebars template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?</strong>
+            {{this.[Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?]}}
+            &nbsp;
+            <strong>Have your views on policing and racism in Colorado changed this year? If so, how?</strong>
+            {{this.[Have your views on policing and racism in Colorado changed this year? If so, how?]}}
+            &nbsp;
+            <strong>Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?</strong>
+            {{this.[Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?]}}
+            &nbsp;
+            <strong>Should Colorado consider any new gun laws? If so, which do you support?</strong><br>{{this.[Should Colorado consider any new gun laws? If so, which do you support?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 27,
+    "Party": "Democratic Party",
+    "Name": "Brianna Titone",
+    "Age": 42,
+    "Place of residence": "18532 W 95th Pl",
+    "Profession": "Geologist, Mining Expert, Software Engineer,",
+    "Education": "BA Physics, BS Geochemistry, MS Geology, MS Information Communication Technology",
+    "Family": "Wife Elysia",
+    "Experience": "Environmental Consultant, Mining Consultant (sole proprietor), Educator, Software Developer",
+    "Campaign website": "http://briannaforcolorado.com",
+    "Facebook": "http://facebook.com/briannaforcolorado",
+    "Twitter": "https://twitter.com/briannaforco",
+    "Why are you seeking public office?": "I'm running because of a long history of serving my community, starting back at 16 as a volunteer firefighter. I've always sought ways to volunteer in my community. Most recently I've served as HOA president for 10 years, and I serve on 2 non-profit boards. I realized that many have lost faith in government and I wanted to show them they can have faith in their representatives by demonstrating availability, accountability, and integrity.",
+    "What will your top three priorities be if elected?": "My top three priorities are to listen to the district’s needs and concerns, deliver on those needs, and communicate the progress about those actions. I try to have ideas of what bills to run prior to starting a session, but I don’t have an agenda. Each year is unique and being able to respond to the current needs are critical to being an effective legislator.",
+    "Do you support some type of public option health insurance or Medicare for All at the state level? If so, which and why? If not, why not?": "I support the public option concept, but I think that in Colorado, it’s difficult to implement because of our fiscal policies. We don’t have the money to run the program ourselves and forcing private companies to provide a product they may not want has it’s issues. People need options for healthcare, especially in rural areas because competition is good to lower costs. However, we haven’t been able to find a solution that has been a true compromise that works for everyone. The public option would be much more fair and effective if provided by the federal government where there are more resources.",
+    "Have your views on policing and racism in Colorado changed this year? If so, how?": "The evidence has surfaced over the years that there has been issues with policing and racism. My view on it has changed in that I’ve listened to the experts and seen report after report of the violence and it has opened my eyes to the systemic racism and unconscious bias that exists. SB20-217 was not something which came from nowhere. It was built on past legislation that couldn’t pass because we weren’t at the breaking point. It’s become clear that the problem is pervasive across the country and we needed to act and we did.",
+    "Do you place a greater importance on addressing climate change or preserving Colorado’s oil and gas industry? What steps would you take on these issues as a lawmaker?": "I place greater importance on climate change because we have a responsibility to fix it. There is too much at stake for the next generation for our leaders to not heed the warnings of respected experts. A cleaner air and water means improved health and reduced healthcare claims, especially for children. In terms of economics, we need to be sure we are considering a just transition for workers to be sure that we are creating clean energy, jobs, and cutting off pollution.",
+    "Should Colorado consider any new gun laws? If so, which do you support?": "To get a CCW you have to take a training course every 10 years, but the permit is renewed every 5 years. The problem with this is that the laws pertaining to your rights and responsibilities may have changed during that time and if you’re not current, you may be at risk of not knowing the law. I believe that the training classes should be done prior to renewing a license at most 5 years. I also think that the training should include aspects of proper handling and perhaps even some aspects of self defense. I also support background checks and safe storage."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>

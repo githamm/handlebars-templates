@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Board of Education Handlebars Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+</head>
+
+<body>
+    <div id="displayArea"></div>
+    <!-- <script id="myTemplate" type="text/x-handlebars-template">
+        {{#each candidates}}
+        <h1>Employee Name : {{this.name}}, Age : {{this.age}}</h1>
+        {{/each}} -->
+
+	<script id="myTemplate" type="text/x-handlebars-template">
+		{{#each candidates}}
+            <h2 style="font-size:2rem;color:red">District {{this.District}}</h2>
+			<aside style="clear:both" class="related right">
+                <div style="border: 1px solid silver;background-color:#f0f0f0;padding:10px">
+                    <h3 style="font-size:1.75rem">{{this.Name}}</h3>
+                    {{this.Party}}
+                    <hr>
+                    <img src="https://extras.denverpost.com/politics/2020-candidate-headshots/{{this.Name}}.jpg" style="float:right;width:150px;margin-left: 5px"><span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">AGE</span>
+                    {{this.Age}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">RESIDENCE</span>
+                    {{this.[Place of residence]}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">PROFESSION</span>
+                    {{this.Profession}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EDUCATION</span>
+                    {{this.Education}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">FAMILY</span>
+                    {{this.Family}}
+                    <span style="font-family:'Source Sans Pro',serif;color:#8e1024;font-weight: bold;font-size:.9rem">EXPERIENCE</span>
+                    {{this.Experience}}
+                    <div style="margin-top:10px">
+                    {{#if [Campaign website]}}
+                    <a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.[Campaign website]}}">WEBSITE</a>{{/if}}{{#if Facebook}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Facebook}}">FACEBOOK</a>{{/if}}{{#if Twitter}}&nbsp;&bull;&nbsp;<a style="font-family:'Source Sans Pro',sans-serif;font-weight: bold;font-size:.9rem" href="{{this.Twitter}}">TWITTER</a>{{/if}}
+                </div>
+                </div>
+            </aside>
+            <strong>Why are you seeking public office?</strong>
+            {{this.[Why are you seeking public office?]}}
+            &nbsp;
+            <strong>What will your top three priorities be if elected?</strong>
+            {{this.[What will your top three priorities be if elected?]}}
+            &nbsp;
+            <strong>Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.</strong>
+            {{this.[Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.]}}
+            &nbsp;
+            <strong>What's working and not working about the way Colorado measures school performance?</strong>
+            {{this.[What's working and not working about the way Colorado measures school performance?]}}
+            &nbsp;
+            <strong>Is the way the state funds K-12 education working? Why or why not, and if not, what should change?</strong>
+            {{this.[Is the way the state funds K-12 education working? Why or why not, and if not, what should change?]}}
+            <hr>
+		{{/each}}
+	</script>
+    <script type="text/javascript">
+    var tmpHtml = document.getElementById("myTemplate").innerHTML;
+    var template = Handlebars.compile(tmpHtml);
+
+    // var data = {
+    //     candidates: [
+    //         { name: "John", age: 22 },
+    //         { name: "Dave", age: 34 },
+    //         { name: "Emily", age: 39 }
+    //     ]
+    // };   
+
+    var data = {
+    	candidates: [
+  {
+    "District": 1,
+    "Party": "Democratic Party",
+    "Name": "Lisa Escárcega",
+    "": "Escárcega",
+    "Age": 60,
+    "Place of residence": "Denver",
+    "Profession": "Retired",
+    "Education": "Psychology, BA; School Psychology, MA; Quantitative Research, DR",
+    "Family": "Lisa lives with her husband, Jesús Escárcega in Denver, where they raised three children.",
+    "Experience": "Lisa started her career as a school psychologist, later worked at the district level, and ended her career working in policy for districts across Colorado.",
+    "Campaign website": "https://www.lisaescarcega.com/",
+    "Facebook": "https://www.facebook.com/LisaforSchools",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am running for the State Board of Education to bring a strong, informed, and consistent K-12 voice back to the Board. For the past several years, the K-12 and community voice and understanding has been severely diminished. The current Board is moving our education system into one that implements policy from the top down, creating a business model of competition for public education. We need members on the State Board with an in-depth and experiential understanding of the issues so that all aspects of what the State Board of Education does can be questioned and reviewed.",
+    "What will your top three priorities be if elected?": "Funding: The lack of public education funding is starving our schools and educators. On many levels, this is intentional and pushes the narrative of ‘failing public schools,' which leads to the push for privatized education. \n\nRedefine a Quality School: We need to redo our accountability system for schools and districts. This starts with defining a quality school based on community values.\n\nCo-Governance: Education policy is made at every level of government. We need to start working together with our communities to ensure that every school is able to serve all of our students.",
+    "Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.": "The State Board of Education definitely has a role. Part of what the State Board does is help implement and give guidance to policy other governing bodies pass.  The Board needs to expedite any funding that comes through the Department of Education, state and federal dollars, ensuring support gets out as rapidly as possible. The Board should also reduce requirements that may slow down getting supports to schools and students. I would also use my platform to advocate for my constituents to ensure their needs are being met.",
+    "What's working and not working about the way Colorado measures school performance?": "Our current SPF is biased against schools with high numbers of students of color, economically disadvantaged students, and students with special needs. The purpose of SPFs is to hold schools and districts accountable for being of ‘quality,’ so there should only be growth data inside an SPF; it should be based on performance assessments, not standardized tests. Those calculations should be made against a standard, and not a normal curve designed always to have some schools failing. More indicators should be included, such as school culture, resources, supports for teachers, etc. All data should continue to be easy to read.",
+    "Is the way the state funds K-12 education working? Why or why not, and if not, what should change?": "No, it is not working. We need to look at two things when we talk about school funding adequacy and equity. The truth is we have not adequately funded our schools for years; Colorado regularly falls in the bottom 15 states nationally for school funding. This will be at an even greater shortfall if Proposition 216 passes. The second issue is equity. We need to ensure that the students that need more get more. This means we need to move away from per-student funding and fund schools based on needs."
+  },
+  {
+    "District": 1,
+    "Party": "Libertarian Party",
+    "Name": "Alan Hayman",
+    "": "Hayman",
+    "Age": 36,
+    "Place of residence": "Englewood",
+    "Profession": "Retail Construction",
+    "Education": "BFA in Media Arts (University of Arizona)",
+    "Family": "",
+    "Experience": "Alan has tutored students in chess and math.",
+    "Campaign website": "http://lpcolorado.org",
+    "Facebook": "https://www.facebook.com/Alan-Hayman-Libertarian-Pragmatist",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am running to give voters in Colorado a third choice in this race, and to offer some new perspective to education in our state.",
+    "What will your top three priorities be if elected?": "My biggest priority is making sure that as many education options as possible are made available to teachers, students, and parents. My second priority would be setting a standard of best practices based on each option. And my third priority would be to help school districts overcome the financial shortfall that coronavirus will surely create for next year.",
+    "Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.": "Yes, the state Board of Ed's role is to empower, but not dictate, best practices for local school districts. Each school district will know better what is in the interest of its community than the state, and they should be encouraged to try things. Over time, those ideas that prove effective can be evaluated by the state to generate best practices to help other districts. The state board can and should also play a more active role in working with public health officials to further expand on best practices.",
+    "What's working and not working about the way Colorado measures school performance?": "I support the change that the State Board made last year to raise the standards for school performance to more accurately reflect student achievement. Everyone wants our schools to deliver the best education possible, and that won't happen unless we are honest about how each school is doing. We owe it to each student to do that.",
+    "Is the way the state funds K-12 education working? Why or why not, and if not, what should change?": "The biggest change I would like to see is the creation of Education Savings Accounts, which could work similarly to Colorado's First Time Homebuyer program, in which all spending from an account designated by the taxpayer will be tax deductible as long as it is an education expense. While not a silver bullet, they can make a huge difference in a child's education. In particular because of Covid, they can potentially offer options such as hiring tutors, expanding after-school enrichment programs, pre-school and early childhood development, and even provide resources for microschools and homeschoolers."
+  },
+  {
+    "District": 1,
+    "Party": "Approval Voting Party",
+    "Name": "Zachary Laddison",
+    "": "Laddison",
+    "Age": 21,
+    "Place of residence": "Denver",
+    "Profession": "<em>Unanswered</em>",
+    "Education": "<em>Unanswered</em>",
+    "Family": "<em>Unanswered</em>",
+    "Experience": "<em>Unanswered</em>",
+    "Campaign website": "https://electionscience.org/",
+    "Facebook": "",
+    "Twitter": "",
+    "Why are you seeking public office?": "I am running for office to get the phrase 'Approval Voting' under people's noses and into their vocabulary. If you are one of the ~60% of Americans that feels disenfranchised by the Two-Party Disaster, if you despise gerrymandering in any form, if approve of democracy, then the approval voting method is for you.",
+    "What will your top three priorities be if elected?": "My one and only priority if elected will be to demand a recount and to launch a full-scale investigation into whatever corruption and fraud made my victory possible.",
+    "Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.": "",
+    "What's working and not working about the way Colorado measures school performance?": "",
+    "Is the way the state funds K-12 education working? Why or why not, and if not, what should change?": ""
+  },
+  {
+    "District": 3,
+    "Party": "Democratic Party",
+    "Name": "Mayling Simpson",
+    "": "Simpson",
+    "Age": 74,
+    "Place of residence": "Steamboat Springs",
+    "Profession": "Public Health Anthropologist",
+    "Education": "PhD Anthropology, BA Biology",
+    "Family": "Married, two children, three grandchildren",
+    "Experience": "Teacher at high school and university levels; Assistant Professor Johns Hopkins School of Public Health, World Health Organization, Catholic Relief Services, Fulbright Fellow in Serbia",
+    "Campaign website": "https://maylingforschools.com",
+    "Facebook": "https://www.facebook.com/maylingforschools",
+    "Twitter": "",
+    "Why are you seeking public office?": "I wish to serve my state and to address education issues I feel passionate about. I want to advocate for equity in per pupil funding across the state and for teacher pay that meets the cost of living. I want to work toward increased funding for our public schools and be a voice for rural Colorado schools, students, teachers and parents.",
+    "What will your top three priorities be if elected?": "My top three priorities are 1) increased and equitable per pupil funding, 2) increasing graduation rates and 3) incentives to bring about more and better vocational training",
+    "Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.": "The State Board of Education should work closely with the Department of Public Health and Environment to ensure the provision of continually updated guidance to help districts create safe conditions for schools. It should work with the Legislature to ensure districts have funds to expand virtual learning technology to rural students and to meet the hygiene needs and personal protective equipment. State Board representatives should work closely with school districts to create safety plans and be their voice in negotiating funding for those needs.",
+    "What's working and not working about the way Colorado measures school performance?": "Standardized tests do not take into account that some school districts have a large number of students living in poverty or do not have English as their mother tongue. Their performance in school is tied more to their home circumstances than their school. The quality of schools and teachers (and students) should not necessarily be judged by the outcomes on these tests. These tests should signal school populations that need extra funding and help. The measurement of performance also includes growth over time, which is probably the most important measurement.",
+    "Is the way the state funds K-12 education working? Why or why not, and if not, what should change?": "The purpose of the School Finance Act is to achieve equity in per pupil funding across the state. It backfills school districts that do not raise sufficient funds locally. State budget cuts have forced reductions in some factors that would make funding equitable across districts. The state's per-pupil funding is on average $2,000 below the national average. Teacher pay is low across the state, especially in rural areas, and rarely meets the local cost of living. We should repeal the Gallagher Amendment, because of its unintended consequences, causing local funding to be insufficient and putting pressure on the state budget."
+  },
+  {
+    "District": 7,
+    "Party": "Democratic Party",
+    "Name": "Karla Esser",
+    "": "Esser",
+    "Age": "",
+    "Place of residence": "Lakewood",
+    "Profession": "Retired Educator",
+    "Education": "Doctorate of Ed Policy & Leadership",
+    "Family": "I have a husband of 40 years, one son and a daughter-in-law",
+    "Experience": "I have been a teacher, school administrator, assist. superintendent, professor & director at Regis University",
+    "Campaign website": "https://www.karlaesser.com/",
+    "Facebook": "https://www.facebook.com/karla4coschools",
+    "Twitter": "",
+    "Why are you seeking public office?": "Our community deserves a board member who understands the issues facing public schools. My entire career has been serving students, families, and educators in public schools. I have an extensive background in public education having worked as a teacher, school administrator, assistant superintendent, and university professor and director at Regis University. I have equal amounts of experience in the German school system and the Colorado system. I have the passion and experience to better our public schools by solving the big issues we face.",
+    "What will your top three priorities be if elected?": "1) School safety has taken on new meaning with CoVID. Colorado has the highest growth rate of teen suicide in the nation. Providing mental health services to support our students in school is top of my list. \n\n2) The latest protests show how important it is to attend to the needs of our students of color and break the school to prison pipeline. This includes recognizing the opportunity gap seen in lower income students and students of color. \n\n3) Work to fund our schools so we are no longer the bottom tier in the nation in regards to school funding.",
+    "Does the state Board of Education have a role to play in supporting schools struggling to meet expanded technology and health/safety needs during the pandemic? Explain your answer.": "Safety should be the first priority in the K-12 environment, especially during a pandemic. CDE and the SBE released guidelines for school openings, but this is a local control state, and local boards make the final decision on the safety measures that follow the governor’s guidelines. \n\nIn an environment of budget cuts due to a downturn caused by the pandemic, it is very hard to see how the SBE can provide expanded technology. However, relooking at the budget and working together with other agencies to provide the necessary digital support for our students must be a top priority.",
+    "What's working and not working about the way Colorado measures school performance?": "Standardized tests have been required since 2003, and what has been shown consistently is that we have an opportunity gap leading to the achievement gaps that can be explained most expediently through a wealth gap. We have spent two decades and millions of dollars on these tests. We do not need a standardized test on top of interim tests, on top of teacher directed tests every year for every student, grades 3-8, plus pSAT and SAT. Universities rarely look at CMAS, and many universities are starting to discount the ACT and SAT. We need a thorough review.",
+    "Is the way the state funds K-12 education working? Why or why not, and if not, what should change?": "The way Colorado funds K-12 education hasn’t worked in decades. We have the lowest competitive wage for teachers in the country according to Chalkbeat. Teacher turnover is extremely high right now because of safety and economic concerns. The SBE will not be able to change the funding formula; that is the purgatory of the state legislature and voters. Funding through property taxes and mill levies has created a very desperate funding system."
+  }
+]
+    };
+    var html = template(data);
+
+    document.getElementById("displayArea").innerHTML += html;
+    </script>
+</body>
+
+</html>
